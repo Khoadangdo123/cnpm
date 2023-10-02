@@ -53,17 +53,15 @@
       <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item active" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
-          <span class="app-menu__label">Quản lý nhân viên</span></a></li>
+          <span class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
       <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-            class="app-menu__label">Quản lý đơn hàng</span></a></li>
+            class="app-menu__label">Quản lý hóa đơn</span></a></li>
       <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+            class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
-      <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
-            class="app-menu__label">Bảng kê lương</span></a></li>
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -124,12 +122,14 @@
                 <tr>
                   <th width="10"><input type="checkbox" id="all"></th>
                   <th>ID nhân viên</th>
-                  <th width="150">Họ và tên</th>
+                  <th width="100">Họ và tên</th>
                   
-                  <th width="300">Địa chỉ</th>
+                  <th width="250">Địa chỉ</th>
                   <th>Ngày sinh</th>
                   <th>Giới tính</th>
                   <th>SĐT</th>
+                  <th>Tài khoản</th>
+                  <th>Mật khẩu</th>
                   <th>Chức vụ</th>
                   <th>Trạng thái</th>
                   <th width="100">Tính năng</th>
@@ -144,12 +144,10 @@
                   <td>12/02/1999</td>
                   <td>Nữ</td>
                   <td>0926737168</td>
+                  <td>thanhngan123</td>
+                  <td>ngan12345</td>
                   <td>Bán hàng</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-danger">Đã nghỉ</span></td>
                   <td class="table-td-center"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                       onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                     </button>
@@ -166,12 +164,10 @@
                   <td>22/12/1999</td>
                   <td>Nữ</td>
                   <td>0931342432</td>
+                  <td>khaai123</td>
+                  <td>ai12345</td>
                   <td>Bán hàng</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-success">Đang làm</span></td>
                   <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                       onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                     </button>
@@ -188,12 +184,10 @@
                   <td>02/06/1998</td>
                   <td>Nữ</td>
                   <td>0931491997</td>
+                  <td>thucuc123</td>
+                  <td>cuc12345</td>
                   <td>Thu ngân</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-danger">Đã nghỉ</span></td>
                   <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction()"><i
                         class="fas fa-trash-alt"></i>
                     </button>
@@ -210,12 +204,10 @@
                   <td>18/02/1995</td>
                   <td>Nam</td>
                   <td>0916706633</td>
+                  <td>anhkhoa123</td>
+                  <td>khoa12345</td>
                   <td>Tư vấn</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-success">Đang làm</span></td>
                   <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction()"><i
                         class="fas fa-trash-alt"></i>
                     </button>
@@ -232,12 +224,10 @@
                   <td>10/03/1996</td>
                   <td>Nam</td>
                   <td>0971038066</td>
+                  <td>thanhnhan123</td>
+                  <td>nhan12345</td>
                   <td>Bảo trì</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-success">Đang làm</span></td>
                   <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction()"><i
                         class="fas fa-trash-alt"></i>
                     </button>
@@ -254,12 +244,10 @@
                   <td>23/07/1996</td>
                   <td>Nam</td>
                   <td>0846881155</td>
+                  <td>trongnhan123</td>
+                  <td>nhan12345</td>
                   <td>Dịch vụ</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-success">Đang làm</span></td>
                   <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction()"><i
                         class="fas fa-trash-alt"></i>
                     </button>
@@ -276,12 +264,10 @@
                   <td>09/12/2000</td>
                   <td>Nữ </td>
                   <td>0836333037</td>
+                  <td>thimai123</td>
+                  <td>mai12345</td>
                   <td>Tư vấn</td>
-                  <td>
-                    <form action="">
-                      <input style="border-radius: 10px;" type="checkbox" name="trangthai">
-                    </form>
-                  </td>
+                  <td><span class="badge bg-success">Đang làm</span></td>
                   <td><button class="btn btn-primary btn-sm trash" title="Xóa" onclick="myFunction()"><i
                         class="fas fa-trash-alt"></i>
                     </button>
@@ -322,7 +308,7 @@
             </div>
             <div class="form-group col-md-6">
               <label class="control-label">Họ và tên</label>
-              <input class="form-control" type="text" required value="Võ Trường">
+              <input class="form-control" type="text" required value="Minh Tiến">
             </div>
             <div class="form-group  col-md-6">
               <label class="control-label">Số điện thoại</label>

@@ -53,17 +53,16 @@
       <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
-          <span class="app-menu__label">Quản lý nhân viên</span></a></li>
+          <span class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
       <li><a class="app-menu__item " href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-            class="app-menu__label">Quản lý đơn hàng</span></a></li>
+            class="app-menu__label">Quản lý hóa đơn</span></a></li>
       <li><a class="app-menu__item active" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+            class="app-menu__label">Quản lý phiểu kiểm
           </span></a></li>
-      <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
-            class="app-menu__label">Bảng kê lương</span></a></li>
+      
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -76,7 +75,7 @@
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item active"><a href="#"><b>Quản lý nội bộ</b></a></li>
+          <li class="breadcrumb-item active"><a href="#"><b>Quản lý phiếu kiểm</b></a></li>
         </ul>
         <div id="clock"></div>
       </div>
@@ -120,10 +119,10 @@
                 <thead>
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
-                    <th>Họ và Tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Chức vụ</th>
-                    <th>Lý do cấm</th>
+                    <th>Mã phiếu kiểm</th>
+                    <th>Nhân viên kiểm</th>
+                    <th>Ngày lập phiếu</th>
+                    
                     <th>Tình trạng</th>
                     <th>Chức năng</th>
                   </tr>
@@ -131,41 +130,37 @@
                 <tbody>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>0001</td>
                     <td>Kiều Thái Anh</td>
-                    <td>10/09/1998</td>
-                    <td>Thu Ngân</td>
-                    <td>Gian lận trong công việc đã lấy trộm tiền của công ty và thái độ không ăn năn hối lỗi</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
+                    <td>10/09/2020</td>
+                    <td><span class="badge bg-success">Đã kiểm hàng</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>0002</td>
                     <td>Nguyễn Thị Kim Yến</td>
-                    <td>02/12/1999</td>
-                    <td>Thu Ngân</td>
-                    <td>Gian lận trong công việc đã lấy trộm tiền của công ty và thái độ không ăn năn hối lỗi</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
+                    <td>02/12/2022</td>
+                    <td><span class="badge bg-danger">Chưa kiểm hàng</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>0003</td>
                     <td>Nguyễn Hoàng Thái Nhật</td>                
-                    <td>07/02/1996</td>
-                    <td>Quản kho</td>
-                    <td>Tự ý thay đổi thông tin nhân viên và không báo cáo quản lý</td>
-                    <td><span class="badge bg-warning">Khóa tài khoản</span></td>
+                    <td>07/09/2023</td>
+                    <td><span class="badge bg-warning">Đang kiểm hàng</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                    <td>0004</td>
                     <td>Võ Thành Nam</td>
-                    <td>19/09/1999</td>
-                    <td>Dịch vụ</td>
-                    <td>Phá hỏng 9 sản phẩm của công ty, có kháng cự khi bị bắt (bồi thường 125.000.000 đ)</td>
-                    <td><span class="badge bg-danger">Sa thải</span></td>
+                    <td>19/09/2022</td>
+                    <td><span class="badge bg-danger">Chưa kiểm hàng</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i></button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>

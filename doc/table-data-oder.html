@@ -53,17 +53,16 @@
       <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Bảng điều khiển</span></a></li>
       <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
-          <span class="app-menu__label">Quản lý nhân viên</span></a></li>
+          <span class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
       <li><a class="app-menu__item active" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-            class="app-menu__label">Quản lý đơn hàng</span></a></li>
+            class="app-menu__label">Quản lý hóa đơn</span></a></li>
       <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+            class="app-menu__label">Quản lý phiểu kiểm
           </span></a></li>
-      <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
-            class="app-menu__label">Bảng kê lương</span></a></li>
+      
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -120,10 +119,12 @@
                 <thead>
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
-                    <th>ID đơn hàng</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Nhân viên xuất đơn</th>
                     <th>Khách hàng</th>
                     <th>Đơn hàng</th>
                     <th>Số lượng</th>
+                    <th>Ngày thanh toán</th>
                     <th>Tổng tiền</th>
                     <th>Tình trạng</th>
                     <th>Tính năng</th>
@@ -133,10 +134,12 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MD0837</td>
+                    <td>Nguyễn Thành Nhân</td>
                     <td>Triệu Thanh Phú</td>
-                    <td>Ghế làm việc Zuno, Bàn ăn gỗ Theresa</td>
-                    <td>2</td>
-                    <td>9.400.000 đ</td>
+                    <td>Cơm cuộn, gà rán</td>
+                    <td>1</td>
+                    <td>09/08/2022</td>
+                    <td>60.000 đ</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -144,10 +147,12 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MĐ8265</td>
+                    <td>Nguyễn Thành Nhân</td>
                     <td>Nguyễn Thị Ngọc Cẩm</td>
-                    <td>Ghế ăn gỗ Lucy màu trắng</td>
-                    <td>1</td>
-                    <td>3.800.000 đ</td>                 
+                    <td>Cua nướng</td>
+                    <td>3</td>
+                    <td>10/09/2023</td>
+                    <td>360.000 đ</td>                 
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -155,10 +160,12 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MT9835</td>
+                    <td>Nguyễn Tấn Quốc</td>
                     <td>Đặng Hoàng Phúc</td>
-                    <td>Giường ngủ Jimmy, Bàn ăn mở rộng cao cấp Dolas, Ghế làm việc Zuno</td>
-                    <td>3 </td>
-                    <td>40.650.000 đ</td>
+                    <td>Thịt xiên, Hot dog</td>
+                    <td>2 </td>
+                    <td>10/09/2023</td>
+                    <td>80.000 đ</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -166,10 +173,12 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>ER3835</td>
+                    <td>Nguyễn Thành Nam</td>
                     <td>Nguyễn Thị Mỹ Yến</td>
-                    <td>Bàn ăn mở rộng Gepa</td>
+                    <td>Gà rán, Khoai tây chiên</td>
                     <td>1 </td>
-                    <td>16.770.000 đ</td>
+                    <td></td>
+                    <td>70.000 đ</td>
                     <td><span class="badge bg-info">Chờ thanh toán</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -177,21 +186,25 @@
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>AL3947</td>
+                    <td>Nguyễn Thành Nhân</td>
                     <td>Phạm Thị Ngọc</td>
-                    <td>Bàn ăn Vitali mặt đá, Ghế ăn gỗ Lucy màu trắng</td>
+                    <td>Bò nướng, Bánh mì cay</td>
                     <td>2 </td>
-                    <td>19.770.000 đ</td>
-                    <td><span class="badge bg-warning">Đang giao hàng</span></td>
+                    <td></td>
+                    <td>120.000 đ</td>
+                    <td><span class="badge bg-danger">Đã hủy</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
                   </tr>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>QY8723</td>
+                    <td>Nguyễn Thành Nam</td>
                     <td>Ngô Thái An</td>
-                    <td>Giường ngủ Kara 1.6x2m</td>
-                    <td>1 </td>
-                    <td>14.500.000 đ</td>
+                    <td>Pizza</td>
+                    <td>2 </td>
+                    <td></td>
+                    <td>100.000 đ</td>
                     <td><span class="badge bg-danger">Đã hủy</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
