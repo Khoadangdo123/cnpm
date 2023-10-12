@@ -62,6 +62,12 @@
       <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
+      
+      <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý phiếu hủy
+          </span></a></li> -->
+      <li><a class="app-menu__item " href="quan-ly-ton-kho.html"><i class='app-menu__icon bx bx-task'></i><span
+            class="app-menu__label">Quản lý tồn kho</span></a></li>
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -123,7 +129,7 @@
                   <th width="10"><input type="checkbox" id="all"></th>
                   <th>ID nhân viên</th>
                   <th width="100">Họ và tên</th>
-                  
+
                   <th width="250">Địa chỉ</th>
                   <th>Ngày sinh</th>
                   <th>Giới tính</th>
@@ -380,14 +386,14 @@
       jQuery(".trash").click(function () {
         swal({
           title: "Cảnh báo",
-         
+
           text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
           .then((willDelete) => {
             if (willDelete) {
               swal("Đã xóa thành công.!", {
-                
+
               });
             }
           });

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Danh sách nhân viên | Quản trị Admin</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Main CSS-->
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <!-- or -->
-        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-      
-        <!-- Font-icon css-->
-        <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-      
-      </head>
+<head>
+  <title>Danh sách nhân viên | Quản trị Admin</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main CSS-->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- or -->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Font-icon css-->
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+</head>
 
 <body onload="time()" class="app sidebar-mini rtl">
-   <!-- Navbar-->
-   <header class="app-header">
+  <!-- Navbar-->
+  <header class="app-header">
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
       aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
@@ -62,7 +62,12 @@
       <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
-      
+      <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý phiếu hủy
+          </span></a></li> -->
+      <li><a class="app-menu__item " href="quan-ly-ton-kho.html"><i class='app-menu__icon bx bx-task'></i><span
+            class="app-menu__label">Quản lý tồn kho</span></a></li>
+
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -72,436 +77,436 @@
             đặt hệ thống</span></a></li>
     </ul>
   </aside>
-    <main class="app-content">
-        <div class="app-title">
-            <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
-            </ul>
-            <div id="clock"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tile">
-                    <div class="tile-body">
-                        <div class="row element-button">
-                            <div class="col-sm-2">
-              
-                              <a class="btn btn-add btn-sm" href="form-add-san-pham.html" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới sản phẩm</a>
-                            </div>
-                            <div class="col-sm-2">
-                              <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
-                                  class="fas fa-file-upload"></i> Tải từ file</a>
-                            </div>
-              
-                            <div class="col-sm-2">
-                              <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                                  class="fas fa-print"></i> In dữ liệu</a>
-                            </div>
-                            <div class="col-sm-2">
-                              <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
-                                  class="fas fa-copy"></i> Sao chép</a>
-                            </div>
-              
-                            <div class="col-sm-2">
-                              <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
-                            </div>
-                            <div class="col-sm-2">
-                              <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                                  class="fas fa-file-pdf"></i> Xuất PDF</a>
-                            </div>
-                            <div class="col-sm-2">
-                              <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                                  class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                            </div>
-                          </div>
-                        <table class="table table-hover table-bordered" id="sampleTable">
-                            <thead>
-                                <tr>
-                                    <th width="10"><input type="checkbox" id="all"></th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Ảnh</th>
-                                    <th>Số lượng</th>
-                                    <th>Tình trạng</th>
-                                    <th>Giá tiền</th>
-                                    <th>Loại</th>
-                                    <th>Chức năng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>1</td>
-                                    <td>Bánh mì ớt cay</td>
-                                    <td><img src="/img-sanpham/bánh mì cayy.jpg" alt="" width="100px;"></td>
-                                    <td>40</td>
-                                    <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>20.000 đ</td>
-                                    <td>Bánh mì</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>2</td>
-                                    <td>Bánh mì thường</td>
-                                    <td><img src="/img-sanpham/bánh mì.jpg" alt="" width="100px;"></td>
-                                    <td>70</td>
-                                    <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>18.000 đ</td>
-                                    <td>Bánh mì</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>3</td>
-                                    <td>Bánh kẹp nướng</td>
-                                    <td><img src="/img-sanpham/bánh kẹp.jpg" alt="" width="100px;"></td>
-                                    <td>40</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>25.000 đ</td>
-                                    <td>Bánh mì</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+  <main class="app-content">
+    <div class="app-title">
+      <ul class="app-breadcrumb breadcrumb side">
+        <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+      </ul>
+      <div id="clock"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <div class="row element-button">
+              <div class="col-sm-2">
 
-                                      
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>4</td>
-                                    <td>Bò nướng</td>
-                                    <td><img src="/img-sanpham/Bò nướng.jpg" alt="" width="100px;"></td>
-                                    <td>50</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>50.000 đ</td>
-                                    <td>Thịt</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>5</td>
-                                    <td>Cơm cuộn</td>
-                                    <td><img src="/img-sanpham/cơm cuộn.jpg" alt="" width="100px;"></td>
-                                    <td>50</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>20.000 đ</td>
-                                    <td>Cơm</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>6</td>
-                                    <td>Gà rán tương</td>
-                                    <td><img src="/img-sanpham/gà rán.jpg" alt="" width="100px;"></td>
-                                    <td>55</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>35.000 đ</td>
-                                    <td>Thịt</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>7</td>
-                                    <td>Khoai tây chiên</td>
-                                    <td><img src="/img-sanpham/khoai tây chiên.jpg" alt="" width="100px;"></td>
-                                    <td>38</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>15.000 đ</td>
-                                    <td>Đồ chiên</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i> </button>
-                                    
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>8</td>
-                                    <td>Pizza gà</td>
-                                    <td><img src="/img-sanpham/pizza.jpg" alt="" width="100px;"></td>
-                                    <td>80</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>70.000 đ</td>
-                                    <td>Pizza</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                      
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>9</td>
-                                    <td>Xúc xích đức</td>
-                                    <td><img src="/img-sanpham/xúc xích.jpg" alt="" width="100px;"></td>
-                                    <td>80</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>15.000 đ</td>
-                                    <td>Xúc xích</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>10</td>
-                                    <td>Cua nướng chiên giòn</td>
-                                    <td><img src="/img-sanpham/cua nướng chiên giòn.jpg" alt="" width="100px;"></td>
-                                    <td>46</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>120.000 đ</td>
-                                    <td>Cua nướng</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                      
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>11</td>
-                                    <td>Cơm cuộn chiên</td>
-                                    <td><img src="/img-sanpham/cơm cuộn chiên.jpg" alt="" width="100px;"></td>
-                                    <td>66</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>25.000 đ</td>
-                                    <td>Cơm cuộn</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>12</td>
-                                    <td>Cơm cuộn sốt cay</td>
-                                    <td><img src="/img-sanpham/cơm cuộn sốt cay.jpg" alt="" width="100px;"></td>
-                                    <td>0</td>
-                                    <td><span class="badge bg-danger">Hét hàng</span></td>
-                                    <td>25.000 đ</td>
-                                    <td>Cơm cuộn</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                      
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>13</td>
-                                    <td>Hamburger thường</td>
-                                    <td><img src="/img-sanpham/hamburger.jpg" alt="" width="100px;"></td>
-                                    <td>73</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>40.000 đ</td>
-                                    <td>Hamburger</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                      
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>14</td>
-                                    <td>Hamburger bò nướng</td>
-                                    <td><img src="/img-sanpham/hamburger bò nướng.jpg" alt="" width="100px;"></td>
-                                    <td>60</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>50.000 đ</td>
-                                    <td>Hamburger</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>15</td>
-                                    <td>Chả cuốn thường</td>
-                                    <td><img src="/img-sanpham/chả cuốn.jpg" alt="" width="100px;"></td>
-                                    <td>65</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>20.000 đ</td>
-                                    <td>Cuốn</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>16</td>
-                                    <td>Bánh mì cay</td>
-                                    <td><img src="/img-sanpham/bánh mì cayy.jpg" alt="" width="100px;"></td>
-                                    <td>60</td>
-                                     <td><span class="badge bg-success">Còn hàng</span></td>
-                                    <td>20.000 đ</td>
-                                    <td>Bánh mì</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
-                      data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                   
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <a class="btn btn-add btn-sm" href="form-add-san-pham.html" title="Thêm"><i class="fas fa-plus"></i>
+                  Tạo mới sản phẩm</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
+                    class="fas fa-file-upload"></i> Tải từ file</a>
+              </div>
+
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
+                    class="fas fa-print"></i> In dữ liệu</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
+                    class="fas fa-copy"></i> Sao chép</a>
+              </div>
+
+              <div class="col-sm-2">
+                <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
+                    class="fas fa-file-pdf"></i> Xuất PDF</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
+                    class="fas fa-trash-alt"></i> Xóa tất cả </a>
+              </div>
             </div>
-        </div>
-    </main>
+            <table class="table table-hover table-bordered" id="sampleTable">
+              <thead>
+                <tr>
+                  <th width="10"><input type="checkbox" id="all"></th>
+                  <th>Mã sản phẩm</th>
+                  <th>Tên sản phẩm</th>
+                  <th>Ảnh</th>
+                  <th>Số lượng</th>
+                  <th>Tình trạng</th>
+                  <th>Giá tiền</th>
+                  <th>Loại</th>
+                  <th>Chức năng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>1</td>
+                  <td>Bánh mì ớt cay</td>
+                  <td><img src="/img-sanpham/bánh mì cayy.jpg" alt="" width="100px;"></td>
+                  <td>40</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>20.000 đ</td>
+                  <td>Bánh mì</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
 
-<!--
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>2</td>
+                  <td>Bánh mì thường</td>
+                  <td><img src="/img-sanpham/bánh mì.jpg" alt="" width="100px;"></td>
+                  <td>70</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>18.000 đ</td>
+                  <td>Bánh mì</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>3</td>
+                  <td>Bánh kẹp nướng</td>
+                  <td><img src="/img-sanpham/bánh kẹp.jpg" alt="" width="100px;"></td>
+                  <td>40</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>25.000 đ</td>
+                  <td>Bánh mì</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>4</td>
+                  <td>Bò nướng</td>
+                  <td><img src="/img-sanpham/Bò nướng.jpg" alt="" width="100px;"></td>
+                  <td>50</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>50.000 đ</td>
+                  <td>Thịt</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>5</td>
+                  <td>Cơm cuộn</td>
+                  <td><img src="/img-sanpham/cơm cuộn.jpg" alt="" width="100px;"></td>
+                  <td>50</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>20.000 đ</td>
+                  <td>Cơm</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>6</td>
+                  <td>Gà rán tương</td>
+                  <td><img src="/img-sanpham/gà rán.jpg" alt="" width="100px;"></td>
+                  <td>55</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>35.000 đ</td>
+                  <td>Thịt</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>7</td>
+                  <td>Khoai tây chiên</td>
+                  <td><img src="/img-sanpham/khoai tây chiên.jpg" alt="" width="100px;"></td>
+                  <td>38</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>15.000 đ</td>
+                  <td>Đồ chiên</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i> </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>8</td>
+                  <td>Pizza gà</td>
+                  <td><img src="/img-sanpham/pizza.jpg" alt="" width="100px;"></td>
+                  <td>80</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>70.000 đ</td>
+                  <td>Pizza</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>9</td>
+                  <td>Xúc xích đức</td>
+                  <td><img src="/img-sanpham/xúc xích.jpg" alt="" width="100px;"></td>
+                  <td>80</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>15.000 đ</td>
+                  <td>Xúc xích</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>10</td>
+                  <td>Cua nướng chiên giòn</td>
+                  <td><img src="/img-sanpham/cua nướng chiên giòn.jpg" alt="" width="100px;"></td>
+                  <td>46</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>120.000 đ</td>
+                  <td>Cua nướng</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>11</td>
+                  <td>Cơm cuộn chiên</td>
+                  <td><img src="/img-sanpham/cơm cuộn chiên.jpg" alt="" width="100px;"></td>
+                  <td>66</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>25.000 đ</td>
+                  <td>Cơm cuộn</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>12</td>
+                  <td>Cơm cuộn sốt cay</td>
+                  <td><img src="/img-sanpham/cơm cuộn sốt cay.jpg" alt="" width="100px;"></td>
+                  <td>0</td>
+                  <td><span class="badge bg-danger">Hét hàng</span></td>
+                  <td>25.000 đ</td>
+                  <td>Cơm cuộn</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>13</td>
+                  <td>Hamburger thường</td>
+                  <td><img src="/img-sanpham/hamburger.jpg" alt="" width="100px;"></td>
+                  <td>73</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>40.000 đ</td>
+                  <td>Hamburger</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>14</td>
+                  <td>Hamburger bò nướng</td>
+                  <td><img src="/img-sanpham/hamburger bò nướng.jpg" alt="" width="100px;"></td>
+                  <td>60</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>50.000 đ</td>
+                  <td>Hamburger</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>15</td>
+                  <td>Chả cuốn thường</td>
+                  <td><img src="/img-sanpham/chả cuốn.jpg" alt="" width="100px;"></td>
+                  <td>65</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>20.000 đ</td>
+                  <td>Cuốn</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>16</td>
+                  <td>Bánh mì cay</td>
+                  <td><img src="/img-sanpham/bánh mì cayy.jpg" alt="" width="100px;"></td>
+                  <td>60</td>
+                  <td><span class="badge bg-success">Còn hàng</span></td>
+                  <td>20.000 đ</td>
+                  <td>Bánh mì</td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!--
   MODAL
 -->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-data-keyboard="false">
-<div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
+  <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
 
-    <div class="modal-body">
-      <div class="row">
-        <div class="form-group  col-md-12">
-          <span class="thong-tin-thanh-toan">
-            <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
-          </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-6">
-            <label class="control-label">Mã sản phẩm </label>
-            <input class="form-control" type="number" value="71309005">
+        <div class="modal-body">
+          <div class="row">
+            <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
+              </span>
+            </div>
           </div>
-        <div class="form-group col-md-6">
-            <label class="control-label">Tên sản phẩm</label>
-          <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
-        </div>
-        <div class="form-group  col-md-6">
-            <label class="control-label">Số lượng</label>
-          <input class="form-control" type="number" required value="20">
-        </div>
-        <div class="form-group col-md-6 ">
-            <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
-            <select class="form-control" id="exampleSelect1">
-              <option>Còn hàng</option>
-              <option>Hết hàng</option>
-              <option>Đang nhập hàng</option>
-            </select>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label">Mã sản phẩm </label>
+              <input class="form-control" type="number" value="71309005">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Tên sản phẩm</label>
+              <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
+            </div>
+            <div class="form-group  col-md-6">
+              <label class="control-label">Số lượng</label>
+              <input class="form-control" type="number" required value="20">
+            </div>
+            <div class="form-group col-md-6 ">
+              <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
+              <select class="form-control" id="exampleSelect1">
+                <option>Còn hàng</option>
+                <option>Hết hàng</option>
+                <option>Đang nhập hàng</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Giá bán</label>
+              <input class="form-control" type="text" value="5.600.000">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleSelect1" class="control-label">Danh mục</label>
+              <select class="form-control" id="exampleSelect1">
+                <option>Bàn ăn</option>
+                <option>Bàn thông minh</option>
+                <option>Tủ</option>
+                <option>Ghế gỗ</option>
+                <option>Ghế sắt</option>
+                <option>Giường người lớn</option>
+                <option>Giường trẻ em</option>
+                <option>Bàn trang điểm</option>
+                <option>Giá đỡ</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group col-md-6">
-            <label class="control-label">Giá bán</label>
-            <input class="form-control" type="text" value="5.600.000">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="exampleSelect1" class="control-label">Danh mục</label>
-            <select class="form-control" id="exampleSelect1">
-              <option>Bàn ăn</option>
-              <option>Bàn thông minh</option>
-              <option>Tủ</option>
-              <option>Ghế gỗ</option>
-              <option>Ghế sắt</option>
-              <option>Giường người lớn</option>
-              <option>Giường trẻ em</option>
-              <option>Bàn trang điểm</option>
-              <option>Giá đỡ</option>
-            </select>
-          </div>
-      </div>
-      <BR>
-      <a href="#" style="    float: right;
+          <BR>
+          <a href="#" style="    float: right;
     font-weight: 600;
     color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
-      <BR>
-      <BR>
-      <button class="btn btn-save" type="button">Lưu lại</button>
-      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-      <BR>
-    </div>
-    <div class="modal-footer">
+          <BR>
+          <BR>
+          <button class="btn btn-save" type="button">Lưu lại</button>
+          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+          <BR>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-<!--
+  <!--
 MODAL
 -->
 
-    <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="src/jquery.table2excel.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $('#sampleTable').DataTable();
-        //Thời Gian
+  <!-- Essential javascripts for application to work-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="src/jquery.table2excel.js"></script>
+  <script src="js/main.js"></script>
+  <!-- The javascript plugin to display page loading on top-->
+  <script src="js/plugins/pace.min.js"></script>
+  <!-- Page specific javascripts-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  <!-- Data table plugin-->
+  <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $('#sampleTable').DataTable();
+    //Thời Gian
     function time() {
       var today = new Date();
       var weekday = new Array(7);
@@ -541,34 +546,34 @@ MODAL
         return i;
       }
     }
-    </script>
-    <script>
-        function deleteRow(r) {
-            var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("myTable").deleteRow(i);
-        }
-        jQuery(function () {
-            jQuery(".trash").click(function () {
-                swal({
-                    title: "Cảnh báo",
-                    text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
-                    buttons: ["Hủy bỏ", "Đồng ý"],
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            swal("Đã xóa thành công.!", {
+  </script>
+  <script>
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+    }
+    jQuery(function () {
+      jQuery(".trash").click(function () {
+        swal({
+          title: "Cảnh báo",
+          text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+          buttons: ["Hủy bỏ", "Đồng ý"],
+        })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Đã xóa thành công.!", {
 
-                            });
-                        }
-                    });
-            });
-        });
-        oTable = $('#sampleTable').dataTable();
-        $('#all').click(function (e) {
-            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
-            e.stopImmediatePropagation();
-        });
-    </script>
+              });
+            }
+          });
+      });
+    });
+    oTable = $('#sampleTable').dataTable();
+    $('#all').click(function (e) {
+      $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+      e.stopImmediatePropagation();
+    });
+  </script>
 </body>
 
 </html>

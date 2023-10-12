@@ -62,7 +62,12 @@
       <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiểu kiểm
           </span></a></li>
-      
+      <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý phiếu hủy
+          </span></a></li> -->
+      <li><a class="app-menu__item " href="quan-ly-ton-kho.html"><i class='app-menu__icon bx bx-task'></i><span
+            class="app-menu__label">Quản lý tồn kho</span></a></li>
+
       <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -72,150 +77,168 @@
             đặt hệ thống</span></a></li>
     </ul>
   </aside>
-    <main class="app-content">
-      <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
-        </ul>
-        <div id="clock"></div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tile">
-            <div class="tile-body">
-              <div class="row element-button">
-                <div class="col-sm-2">
-  
-                  <a class="btn btn-add btn-sm" href="form-add-don-hang.html" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
-                      class="fas fa-file-upload"></i> Tải từ file</a>
-                </div>
-  
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                      class="fas fa-print"></i> In dữ liệu</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
-                      class="fas fa-copy"></i> Sao chép</a>
-                </div>
-  
-                <div class="col-sm-2">
-                  <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                      class="fas fa-file-pdf"></i> Xuất PDF</a>
-                </div>
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                      class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                </div>
+  <main class="app-content">
+    <div class="app-title">
+      <ul class="app-breadcrumb breadcrumb side">
+        <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
+      </ul>
+      <div id="clock"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <div class="row element-button">
+              <div class="col-sm-2">
+
+                <a class="btn btn-add btn-sm" href="form-add-don-hang.html" title="Thêm"><i class="fas fa-plus"></i>
+                  Tạo mới đơn hàng</a>
               </div>
-              <table class="table table-hover table-bordered" id="sampleTable">
-                <thead>
-                  <tr>
-                    <th width="10"><input type="checkbox" id="all"></th>
-                    <th>Mã đơn hàng</th>
-                    <th>Nhân viên xuất đơn</th>
-                    <th>Khách hàng</th>
-                    <th>Đơn hàng</th>
-                    <th>Số lượng</th>
-                    <th>Ngày thanh toán</th>
-                    <th>Tổng tiền</th>
-                    <th>Tình trạng</th>
-                    <th>Tính năng</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>MD0837</td>
-                    <td>Nguyễn Thành Nhân</td>
-                    <td>Triệu Thanh Phú</td>
-                    <td>Cơm cuộn, gà rán</td>
-                    <td>1</td>
-                    <td>09/08/2022</td>
-                    <td>60.000 đ</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>MĐ8265</td>
-                    <td>Nguyễn Thành Nhân</td>
-                    <td>Nguyễn Thị Ngọc Cẩm</td>
-                    <td>Cua nướng</td>
-                    <td>3</td>
-                    <td>10/09/2023</td>
-                    <td>360.000 đ</td>                 
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>MT9835</td>
-                    <td>Nguyễn Tấn Quốc</td>
-                    <td>Đặng Hoàng Phúc</td>
-                    <td>Thịt xiên, Hot dog</td>
-                    <td>2 </td>
-                    <td>10/09/2023</td>
-                    <td>80.000 đ</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>ER3835</td>
-                    <td>Nguyễn Thành Nam</td>
-                    <td>Nguyễn Thị Mỹ Yến</td>
-                    <td>Gà rán, Khoai tây chiên</td>
-                    <td>1 </td>
-                    <td></td>
-                    <td>70.000 đ</td>
-                    <td><span class="badge bg-info">Chờ thanh toán</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>AL3947</td>
-                    <td>Nguyễn Thành Nhân</td>
-                    <td>Phạm Thị Ngọc</td>
-                    <td>Bò nướng, Bánh mì cay</td>
-                    <td>2 </td>
-                    <td></td>
-                    <td>120.000 đ</td>
-                    <td><span class="badge bg-danger">Đã hủy</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                  <tr>
-                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>QY8723</td>
-                    <td>Nguyễn Thành Nam</td>
-                    <td>Ngô Thái An</td>
-                    <td>Pizza</td>
-                    <td>2 </td>
-                    <td></td>
-                    <td>100.000 đ</td>
-                    <td><span class="badge bg-danger">Đã hủy</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
+                    class="fas fa-file-upload"></i> Tải từ file</a>
+              </div>
+
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
+                    class="fas fa-print"></i> In dữ liệu</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
+                    class="fas fa-copy"></i> Sao chép</a>
+              </div>
+
+              <div class="col-sm-2">
+                <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
+                    class="fas fa-file-pdf"></i> Xuất PDF</a>
+              </div>
+              <div class="col-sm-2">
+                <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
+                    class="fas fa-trash-alt"></i> Xóa tất cả </a>
+              </div>
             </div>
+            <table class="table table-hover table-bordered" id="sampleTable">
+              <thead>
+                <tr>
+                  <th width="10"><input type="checkbox" id="all"></th>
+                  <th>Mã đơn hàng</th>
+                  <th>Nhân viên xuất đơn</th>
+                  <th>Khách hàng</th>
+                  <th>Đơn hàng</th>
+                  <th>Số lượng</th>
+                  <th>Ngày thanh toán</th>
+                  <th>Tổng tiền</th>
+                  <th>Tình trạng</th>
+                  <th>Tính năng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>MD0837</td>
+                  <td>Nguyễn Thành Nhân</td>
+                  <td>Triệu Thanh Phú</td>
+                  <td>Cơm cuộn, gà rán</td>
+                  <td>1</td>
+                  <td>09/08/2022</td>
+                  <td>60.000 đ</td>
+                  <td><span class="badge bg-success">Hoàn thành</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>MĐ8265</td>
+                  <td>Nguyễn Thành Nhân</td>
+                  <td>Nguyễn Thị Ngọc Cẩm</td>
+                  <td>Cua nướng</td>
+                  <td>3</td>
+                  <td>10/09/2023</td>
+                  <td>360.000 đ</td>
+                  <td><span class="badge bg-success">Hoàn thành</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>MT9835</td>
+                  <td>Nguyễn Tấn Quốc</td>
+                  <td>Đặng Hoàng Phúc</td>
+                  <td>Thịt xiên, Hot dog</td>
+                  <td>2 </td>
+                  <td>10/09/2023</td>
+                  <td>80.000 đ</td>
+                  <td><span class="badge bg-success">Hoàn thành</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>ER3835</td>
+                  <td>Nguyễn Thành Nam</td>
+                  <td>Nguyễn Thị Mỹ Yến</td>
+                  <td>Gà rán, Khoai tây chiên</td>
+                  <td>1 </td>
+                  <td></td>
+                  <td>70.000 đ</td>
+                  <td><span class="badge bg-info">Chờ thanh toán</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>AL3947</td>
+                  <td>Nguyễn Thành Nhân</td>
+                  <td>Phạm Thị Ngọc</td>
+                  <td>Bò nướng, Bánh mì cay</td>
+                  <td>2 </td>
+                  <td></td>
+                  <td>120.000 đ</td>
+                  <td><span class="badge bg-danger">Đã hủy</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                  <td>QY8723</td>
+                  <td>Nguyễn Thành Nam</td>
+                  <td>Ngô Thái An</td>
+                  <td>Pizza</td>
+                  <td>2 </td>
+                  <td></td>
+                  <td>100.000 đ</td>
+                  <td><span class="badge bg-danger">Đã hủy</span></td>
+                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                        class="fas fa-trash-alt"></i> </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
+                        class="fa fa-edit"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -240,14 +263,14 @@
       jQuery(".trash").click(function () {
         swal({
           title: "Cảnh báo",
-         
+
           text: "Bạn có chắc chắn là muốn xóa đơn hàng này?",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
           .then((willDelete) => {
             if (willDelete) {
               swal("Đã xóa thành công.!", {
-                
+
               });
             }
           });
