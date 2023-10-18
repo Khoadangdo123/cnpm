@@ -53,7 +53,7 @@
             class="app-menu__label">Tổng quát</span></a></li>
             <li><a class="app-menu__item " href="quan-ly-dat-hang.html"><i class='app-menu__icon bx bx-cable-car'></i><span
               class="app-menu__label">Quản lý đặt hàng</span></a></li>
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i> <span
+      <li><a class="app-menu__item " href="table-data-table.html" id="qltk" disable><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
@@ -74,7 +74,7 @@
       </li>
       <li><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
             class="app-menu__label">Lịch công tác </span></a></li>
-      <li><a class="app-menu__item" href="cai-dat-ht.html"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
+      <li><a class="app-menu__item" href="cai-dat-ht.html" id="cdht"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
             đặt hệ thống</span></a></li>
     </ul>
   </aside>
@@ -356,6 +356,56 @@
       }
     }
   </script>
+
+  <!-- <script>
+    const link = document.getElementById("qltk");
+
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Nếu có giá trị, kiểm tra nó và enable hoặc disable link
+      if (selectedOption === "admin") {
+        link.removeAttribute("disabled");
+        link.href = "table-data-table.html"; // Đặt URL muốn chuyển đến
+      } else {
+        link.setAttribute("disabled", "disabled");
+        link.removeAttribute("href");
+      }
+    }
+  </script> -->
+
+  <script>
+    // Danh sách các thẻ <a> và URL tương ứng
+    const links = {
+      link1: { element: document.getElementById("qltk"), url: "table-data-table.html" },
+      link2: { element: document.getElementById("cdht"), url: "cai-dat-ht.html" },
+      link3: { element: document.getElementById("link3"), url: "url3.html" }
+    };
+
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Duyệt qua danh sách thẻ <a> và thiết lập href và disabled cho từng thẻ
+      for (const key in links) {
+        if (selectedOption === "admin") {
+          links[key].element.removeAttribute("disabled");
+          links[key].element.href = links[key].url; // Đặt URL riêng lẻ cho mỗi thẻ
+        } else {
+          links[key].element.setAttribute("disabled", "disabled");
+          links[key].element.removeAttribute("href");
+        }
+
+        if (selectedOption === "admin") {
+          links[key].style.display = "block"; // Hiển thị thẻ
+        } else {
+          links[key].style.display = "none"; // Ẩn thẻ
+        }
+      }
+    }
+  </script>
+
 </body>
 
 </html>

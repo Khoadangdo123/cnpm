@@ -54,12 +54,12 @@
                         </div>
                         <div class="form-group col-md-8">
                             <label for="exampleSelect1" class="control-label">Quyền</label>
-                            <select class="form-control" id="exampleSelect1">
+                            <select class="form-control" id="phan-quyen">
                               <option>-- Chọn quyền --</option>
-                              <option>Admin</option>
-                              <option>Quản lý</option>
+                              <option value="admin">Admin</option>
+                              <option value="ql">Quản lý</option>
 
-                              <option>Nhân viên</option>
+                              <option value="nv">Nhân viên</option>
                             </select>
                           </div>
                         <!--=====ĐĂNG NHẬP======-->
@@ -110,6 +110,13 @@
             }
         });
     </script>
+
+    <script>
+        const select = document.getElementById("phan-quyen");
+        select.addEventListener("change", function () {
+          localStorage.setItem("selectedOption", select.value);
+        });
+      </script>
 </body>
 
 </html>
