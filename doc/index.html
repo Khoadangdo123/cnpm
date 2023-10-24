@@ -47,20 +47,20 @@
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
+      <li id="item1"><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
           <span class="app-menu__label">Thanh toán</span></a></li>
       <li><a class="app-menu__item active" href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Tổng quát</span></a></li>
             <li><a class="app-menu__item " href="quan-ly-dat-hang.html"><i class='app-menu__icon bx bx-cable-car'></i><span
               class="app-menu__label">Quản lý đặt hàng</span></a></li>
-      <li><a class="app-menu__item " href="table-data-table.html" id="qltk" disable><i class='app-menu__icon bx bx-id-card'></i> <span
+      <li id="item2"><a class="app-menu__item " href="table-data-table.html" id="qltk" disabled ><i class='app-menu__icon bx bx-id-card'></i> <span
             class="app-menu__label">Quản lý tài khoản</span></a></li>
       <li><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
       <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý hóa đơn</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
+      <li><a class="app-menu__item" href="table-data-banned.html" id="qlpk" disabled ><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiểu kiểm
           </span></a></li>
       <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
@@ -380,7 +380,7 @@
     const links = {
       link1: { element: document.getElementById("qltk"), url: "table-data-table.html" },
       link2: { element: document.getElementById("cdht"), url: "cai-dat-ht.html" },
-      link3: { element: document.getElementById("link3"), url: "url3.html" }
+      link3: { element: document.getElementById("qlpk"), url: "table-data-banned.html" }
     };
 
     // Kiểm tra giá trị đã được lưu từ a.html
@@ -405,6 +405,22 @@
       }
     }
   </script>
+
+  <!-- <script>
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Ẩn hoặc hiển thị các thẻ li theo định danh
+      if (selectedOption === "admin") {
+        document.getElementById("item1").style.display = "block"; // Hiển thị thẻ có id "item1"
+        document.getElementById("item2").style.display = "none";  // Ẩn thẻ có id "item2"
+        document.getElementById("item3").style.display = "block"; // Hiển thị thẻ có id "item3"
+      } else {
+        // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+      }
+    }
+  </script> -->
 
 </body>
 
