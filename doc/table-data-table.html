@@ -48,34 +48,36 @@
     </div>
     <hr>
     <ul class="app-menu">
-      <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
+      <li id="item1"><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
           <span class="app-menu__label">Thanh toán</span></a></li>
-      <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+      <li id="item2"><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Tổng quát</span></a></li>
-            <li><a class="app-menu__item " href="quan-ly-dat-hang.html"><i class='app-menu__icon bx bx-cable-car'></i><span
-              class="app-menu__label">Quản lý đặt hàng</span></a></li>
-      <li><a class="app-menu__item active" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
+      <li id="item3"><a class="app-menu__item " href="quan-ly-dat-hang.html"><i class='app-menu__icon bx bx-cable-car'></i><span
+            class="app-menu__label">Quản lý đặt hàng</span></a></li>
+      <li id="item4"><a class="app-menu__item active" href="table-data-table.html"><i
+            class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý tài khoản</span></a></li>
-      <li><a class="app-menu__item" href="table-data-product.html"><i
+      <li id="item5"><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
-      <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
+      <li id="item6"><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý hóa đơn</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
+      <li id="item7"><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
-      
+
       <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiếu hủy
           </span></a></li> -->
-      <li><a class="app-menu__item " href="quan-ly-ton-kho.html"><i class='app-menu__icon bx bx-task'></i><span
+      <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý tồn kho</span></a></li>
-      <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
+      <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
-      <li><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+      <li id="item10"><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
             class="app-menu__label">Lịch công tác </span></a></li>
-      <li><a class="app-menu__item" href="cai-dat-ht.html"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
+      <li id="item11"><a class="app-menu__item" href="cai-dat-ht.html"><i class='app-menu__icon bx bx-cog'></i><span
+            class="app-menu__label">Cài
             đặt hệ thống</span></a></li>
     </ul>
   </aside>
@@ -348,7 +350,7 @@
             <div class="form-group  col-md-6">
               <label for="exampleSelect1" class="control-label">Chức vụ</label>
               <select class="form-control" id="exampleSelect1">
-            
+
                 <option>Đang làm</option>
                 <option>Đã nghỉ</option>
               </select>
@@ -502,7 +504,53 @@
     });
   </script>
 
-  
+  <script>
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Ẩn hoặc hiển thị các thẻ li theo định danh
+      if (selectedOption === "nv") {
+        document.getElementById("item1").style.display = "block";
+        document.getElementById("item2").style.display = "block";
+        document.getElementById("item3").style.display = "block";
+        document.getElementById("item4").style.display = "none";
+        document.getElementById("item5").style.display = "block";
+        document.getElementById("item6").style.display = "block";
+        document.getElementById("item7").style.display = "none";
+        document.getElementById("item8").style.display = "block";
+        document.getElementById("item9").style.display = "none";
+        document.getElementById("item10").style.display = "none";
+        document.getElementById("item11").style.display = "none";
+      } else {
+        // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+      }
+    }
+  </script>
+
+  <script>
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption2 = localStorage.getItem("selectedOption");
+
+    if (selectedOption2 !== null) {
+      // Ẩn hoặc hiển thị các thẻ li theo định danh
+      if (selectedOption === "ql") {
+        document.getElementById("item1").style.display = "block";
+        document.getElementById("item2").style.display = "block";
+        document.getElementById("item3").style.display = "block";
+        document.getElementById("item4").style.display = "block";
+        document.getElementById("item5").style.display = "block";
+        document.getElementById("item6").style.display = "block";
+        document.getElementById("item7").style.display = "block";
+        document.getElementById("item8").style.display = "block";
+        document.getElementById("item9").style.display = "block";
+        document.getElementById("item10").style.display = "block";
+        document.getElementById("item11").style.display = "none";
+      } else {
+        // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+      }
+    }
+  </script>
 </body>
 
 </html>
