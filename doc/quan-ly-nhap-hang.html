@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Danh sách đơn hàng | Quản trị Admin</title>
+    <title>Danh sách đặt hàng | Quản trị Admin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +54,7 @@
             <li id="item2"><a class="app-menu__item " href="index.html"><i
                         class='app-menu__icon bx bx-tachometer'></i><span class="app-menu__label">Tổng quát</span></a>
             </li>
-            <li id="item3"><a class="app-menu__item  active" href="quan-ly-dat-hang.html"><i
+            <li id="item3"><a class="app-menu__item  " href="quan-ly-dat-hang.html"><i
                         class='app-menu__icon bx bx-cable-car'></i><span class="app-menu__label">Quản lý đặt
                         hàng</span></a></li>
             <li id="item4"><a class="app-menu__item " href="table-data-table.html"><i
@@ -64,7 +64,7 @@
                         class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản
                         phẩm</span></a>
             </li>
-            <li id="item6"><a class="app-menu__item     " href="quan-ly-hoa-don.html"><i
+            <li id="item6"><a class="app-menu__item " href="quan-ly-hoa-don.html"><i
                         class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý hóa đơn</span></a>
             </li>
             <li id="item7"><a class="app-menu__item" href="table-data-banned.html"><i
@@ -76,6 +76,9 @@
             <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i
                         class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý tồn kho</span></a>
             </li>
+            <li id="item8,5"><a class="app-menu__item active" href="quan-ly-nhap-hang.html"><i
+                class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
+    </li>
             <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
                         class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh
                         thu</span></a>
@@ -91,7 +94,7 @@
     <main class="app-content">
         <div class="app-title">
             <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item active"><a href="#"><b>Chi tiết đơn đặt</b></a></li>
+                <li class="breadcrumb-item active"><a href="#"><b>Quản lý đặt hàng</b></a></li>
             </ul>
             <div id="clock"></div>
         </div>
@@ -102,7 +105,7 @@
                         <div class="row element-button">
                             <div class="col-sm-2">
 
-                                <a class="btn btn-add btn-sm" href="form-add-bi-cam.html" title="Thêm"><i
+                                <a class="btn btn-add btn-sm" href="form-add-dat-hang.html" title="Thêm"><i
                                         class="fas fa-plus"></i>
                                     Tạo mới</a>
                             </div>
@@ -137,79 +140,170 @@
                             <thead>
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
-                                    <th>Mã đơn đặt</th>
-                                    <th>STT</th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Số lượng</th>
+                                    <th>Mã đơn nhập</th>
+                                    <th>Nhân viên nhập</th>
+                                    <th>Ngày nhập</th>
+                                    <th>Tổng</th>
 
-                                    <th>Đơn giá</th>
+                                    <th>Xem chi tiết đơn đặt</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td rowspan="4">0001</td>
-                                    <td>1</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
+                                    <td>0001</td>
+                                    <td>Kiều Thái Anh</td>
+                                    <td>06/11/2023</td>
+                                    <td>100.000d</td>
+                                    <td><span class="badge bg-success"><a href="chi-tiet-nhap-hang.html">Nhấn để xem</a>
+                                        </span></td>
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
+                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                              </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>2</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
+                                    <td>0002</td>
+                                    <td>Nguyễn Thị Kim Yến</td>
+                                    <td>06/11/2023</td>
+                                    <td>100.000d</td>
+                                    <td><span class="badge bg-success"><a href="chi-tiet-nhap-hang.html">Nhấn để xem</a>
+                                        </span></td>
+
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
+                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                              </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>3</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
+                                    <td>0003</td>
+                                    <td>Nguyễn Hoàng Thái Nhật</td>
+                                    <td>06/11/2023</td>
+                                    <td>100.000d</td>
+                                    <td><span class="badge bg-success"><a href="chi-tiet-nhap-hang.html">Nhấn để xem</a>
+                                        </span></td>
+
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
+                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                              </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>4</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
+                                    <td>0004</td>
+                                    <td>Võ Thành Nam</td>
+                                    <td>06/11/2023</td>
+                                    <td>100.000d</td>
+                                    <td><span class="badge bg-success"><a href="chi-tiet-nhap-hang.html">Nhấn để xem</a>
+                                        </span></td>
+
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
+                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                              </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="col-sm-11 text-right">
-                            <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button"
-                                title="Quay lại" href="quan-ly-dat-hang.html"> Quay lại</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+     <!--
+  MODAL
+-->
+  <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group  col-md-12">
+            <span class="thong-tin-thanh-toan">
+              <h5>Chỉnh sửa thông tin đặt hàng</h5>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="control-label">Mã đơn nhập</label>
+            <input class="form-control" type="text" required value="#CD2187" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="control-label">Nhân viên nhập</label>
+            <input class="form-control" type="text" required value="Minh Tiến">
+          </div>
+          <div class="form-group  col-md-6">
+            <label class="control-label">Ngày nhập</label>
+            <input class="form-control" type="date" required value="Bùi Xuân Huấn">
+          </div>
+          <div class="form-group  col-md-6">
+            <label class="control-label">Tổng</label>
+            <input class="form-control" type="number" required value="Bùi Xuân Huấn">
+          </div>
+          <!-- <div class="form-group col-md-6">
+            <label class="control-label">Địa chỉ email</label>
+            <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
+          </div>
+          <div class="form-group col-md-6">
+            <label class="control-label">Ngày sinh</label>
+            <input class="form-control" type="date" value="15/03/2000">
+          </div> -->
+          <!-- <div class="form-group  col-md-6">
+            <label for="exampleSelect1" class="control-label">Chức vụ</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>Bán hàng</option>
+              <option>Tư vấn</option>
+              <option>Dịch vụ</option>
+              <option>Thu Ngân</option>
+              <option>Quản kho</option>
+              <option>Bảo trì</option>
+              <option>Kiểm hàng</option>
+              <option>Bảo vệ</option>
+              <option>Tạp vụ</option>
+            </select>
+          </div> -->
+
+          <!-- <div class="form-group  col-md-6">
+            <label for="exampleSelect1" class="control-label">Chức vụ</label>
+            <select class="form-control" id="exampleSelect1">
+
+              <option>Đang làm</option>
+              <option>Đã nghỉ</option>
+            </select>
+          </div> -->
+        </div>
+        <!-- <BR>
+        <a href="#" style="    float: right;
+      font-weight: 600;
+      color: #ea0000;">Chỉnh sửa nâng cao</a>
+        <BR> -->
+        <BR>
+        <button class="btn btn-save" type="button">Lưu lại</button>
+        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+        <BR>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+MODAL
+-->
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -338,7 +432,6 @@
             $("#ModalUP").modal({ backdrop: false, keyboard: false })
         });
     </script>
-
     <script>
         // Kiểm tra giá trị đã được lưu từ a.html
         const selectedOption = localStorage.getItem("selectedOption");
@@ -388,4 +481,4 @@
     </script>
 </body>
 
-</html>F
+</html>
