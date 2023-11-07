@@ -76,8 +76,12 @@
             <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i
                         class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý tồn kho</span></a>
             </li>
-            <li id="item8,5"><a class="app-menu__item active" href="quan-ly-nhap-hang.html"><i
+            <li id="item8,1"><a class="app-menu__item active" href="quan-ly-nhap-hang.html"><i
                         class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
+            </li>
+            <li id="item8,2"><a class="app-menu__item" href="quan-ly-nha-cung-cap.html"><i
+                        class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhà cung
+                        cấp</span></a>
             </li>
             <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
                         class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh
@@ -94,7 +98,7 @@
     <main class="app-content">
         <div class="app-title">
             <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item active"><a href="#"><b>Quản lý đặt hàng</b></a></li>
+                <li class="breadcrumb-item active"><a href="#"><b>Quản lý nhập hàng</b></a></li>
             </ul>
             <div id="clock"></div>
         </div>
@@ -105,7 +109,7 @@
                         <div class="row element-button">
                             <div class="col-sm-2">
 
-                                <a class="btn btn-add btn-sm" href="form-add-dat-hang.html" title="Thêm"><i
+                                <a class="btn btn-add btn-sm" href="form-add-nhap-hang.html" title="Thêm"><i
                                         class="fas fa-plus"></i>
                                     Tạo mới</a>
                             </div>
@@ -141,11 +145,11 @@
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
                                     <th>Mã đơn nhập</th>
-                                    <th>Nhân viên nhập</th>
+                                    <th>Nhân viên xuất hóa đơn</th>
                                     <th>Ngày nhập</th>
                                     <th>Tổng</th>
 
-                                    <th>Xem chi tiết đơn đặt</th>
+                                    <th>Xem chi tiết đơn nhập</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -447,6 +451,8 @@ MODAL
                 document.getElementById("item6").style.display = "block";
                 document.getElementById("item7").style.display = "none";
                 document.getElementById("item8").style.display = "block";
+                document.getElementById("item8,1").style.display = "block";
+                document.getElementById("item8,2").style.display = "none";
                 document.getElementById("item9").style.display = "none";
                 document.getElementById("item10").style.display = "none";
                 document.getElementById("item11").style.display = "none";
