@@ -222,27 +222,27 @@
             <form class="row">
               <div class="form-group col-md-4">
                 <label class="control-label">ID nhân viên</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" id="maNV">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Họ và tên</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="text" id="hoVaTen" required>
               </div>
               <!-- <div class="form-group col-md-4">
                 <label class="control-label">Địa chỉ email</label>
                 <input class="form-control" type="text" required>
               </div> -->
-              <!-- <div class="form-group col-md-4">
+              <div class="form-group col-md-4">
                 <label class="control-label">Địa chỉ thường trú</label>
-                <input class="form-control" type="text" required>
-              </div> -->
+                <input class="form-control" type="text" id="diaChi" required>
+              </div>
               <div class="form-group  col-md-4">
                 <label class="control-label">Số điện thoại</label>
-                <input class="form-control" type="number" required>
+                <input class="form-control" type="number" id="sdt" required>
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Ngày sinh</label>
-                <input class="form-control" type="date">
+                <input class="form-control" type="date" id="ngaySinh">
               </div>
               <!-- <div class="form-group  col-md-3">
                 <label class="control-label">Nơi sinh</label>
@@ -263,48 +263,35 @@
 
               <div class="form-group col-md-3">
                 <label class="control-label">Giới tính</label>
-                <select class="form-control" id="exampleSelect2" required>
-                  <option>-- Chọn giới tính --</option>
-                  <option>Nam</option>
-                  <option>Nữ</option>
+                <select class="form-control" id="selectGioiTinh" required>
+                  <option value="Nam">Nam</option>
+                  <option value="Nữ">Nữ</option>
                 </select>
               </div>
 
               <div class="form-group  col-md-3">
                 <label for="exampleSelect1" class="control-label">Chức vụ</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn chức vụ --</option>
-                  <option>Bán hàng</option>
-                  <option>Tư vấn</option>
-                  <option>Dịch vụ</option>
-                  <option>Thu Ngân</option>
-                  <option>Quản kho</option>
-                  <option>Bảo trì</option>
-                  <option>Kiểm hàng</option>
-                  <option>Bảo vệ</option>
-                  <option>Tạp vụ</option>
+                <select class="form-control" id="selectChucVu">
+                  <option value="Nhân viên">Nhân viên</option>
+                  <option value="Quản lý">Quản lý</option>
                 </select>
               </div>
 
               <div class="form-group col-md-3">
                 <label class="control-label">Tài khoản</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="text" id="inputTK" required>
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Mật khẩu</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="text" id="inputMK" required>
               </div>
-              <!-- <div class="form-group col-md-3">
-                <label class="control-label">Bằng cấp</label>
-                <select class="form-control" id="exampleSelect3">
-                  <option>-- Chọn bằng cấp --</option>
-                  <option>Tốt nghiệp Đại Học</option>
-                  <option>Tốt nghiệp Cao Đẳng</option>
-                  <option>Tốt nghiệp Phổ Thông</option>
-                  <option>Chưa tốt nghiệp</option>
-                  <option>Không bằng cấp</option>
+              <div class="form-group col-md-3">
+                <label class="control-label">Trạng thái</label>
+                <select class="form-control" id="inputTrangThai">
+                  <option value="Đã nghỉ">Đã nghỉ</option>
+                  <option value="Đang làm">Đang làm</option>
                 </select>
-              </div> -->
+              </div>
               <!-- <div class="form-group col-md-3">
                 <label class="control-label">Tình trạng hôn nhân</label>
                 <select class="form-control" id="exampleSelect2">
@@ -335,7 +322,7 @@
 
 
         </div>
-        <button class="btn btn-save" type="button">Lưu lại</button>
+        <button class="btn btn-save" type="button" onclick="insertThongTinNhanVien()">Lưu lại</button>
         <a class="btn btn-cancel" href="/doc/table-data-table.html">Hủy bỏ</a>
       </div>
 
@@ -411,6 +398,75 @@
   </script>
 
   <script>
+
+    // Code Chức năng
+
+    function DataTimeNgaySinh(data) {
+      // Split the string into components
+      var dateComponents = data.split("-");
+
+      // Rearrange the components in the "mm-dd-yyyy" format
+      var outputDateString = dateComponents[0] + "-" + dateComponents[2] + "-" + dateComponents[1];
+
+      return outputDateString;
+    }
+
+    function insertThongTinNhanVien() {
+      var valueIDNhanVien = document.getElementById('maNV').value;
+      var valueHovaTen = document.getElementById('hoVaTen').value;
+      var valueSDT = document.getElementById('sdt').value;
+      var valueDiaChi = document.getElementById('diaChi').value;
+      var valueNgaySinh = document.getElementById('ngaySinh').value;
+
+      var selectChonGioiTinh = document.getElementById('selectGioiTinh');
+      var selectOptionGT = selectChonGioiTinh.options[selectChonGioiTinh.selectedIndex];
+      var valueGT = selectOptionGT.value;
+
+      var selectChucVu = document.getElementById('selectChucVu');
+      var selectOptionCV = selectChucVu.options[selectChucVu.selectedIndex];
+      var valueCV = selectOptionCV.value;
+
+      var selectTrangThai = document.getElementById('inputTrangThai');
+      var selectOptionTT = selectTrangThai.options[selectTrangThai.selectedIndex];
+      var valueTT = selectOptionTT.value;
+
+      var valueTK = document.getElementById('inputTK').value;
+      var valueMK = document.getElementById('inputMK').value;
+
+      const dataInsert = {
+        MANV: valueIDNhanVien,
+        TENNV: valueHovaTen,
+        DIACHI: valueDiaChi,
+        NGAYSINH: valueNgaySinh,
+        GIOITINH: valueGT,
+        TRANGTHAI: valueTT,
+        SDT: valueSDT,
+        TKHOAN: valueTK,
+        MKHAU: valueMK,
+        CHUCVU: valueCV
+      };
+
+      fetch('http://localhost:3000/QL/nhanvien', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataInsert)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.status === 'success') {
+            location.href = './table-data-table.html'
+          } else {
+            alert('Vui bạn nhập đúng yêu cầu')
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption2 = localStorage.getItem("selectedOption");
 

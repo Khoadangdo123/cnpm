@@ -381,11 +381,13 @@
   <script src="js/plugins/pace.min.js"></script>
   <script>
     // Kiểm tra giá trị đã được lưu từ a.html
+
     const selectedOption = localStorage.getItem("selectedOption");
 
+    
     if (selectedOption !== null) {
       // Ẩn hoặc hiển thị các thẻ li theo định danh
-      if (selectedOption === "nv") {
+      if (selectedOption === "Nhân viên") {
         document.getElementById("item1").style.display = "block";
         document.getElementById("item2").style.display = "block";
         document.getElementById("item3").style.display = "block";

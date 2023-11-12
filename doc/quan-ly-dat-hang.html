@@ -144,8 +144,8 @@
                                     <th width="10"><input type="checkbox" id="all"></th>
                                     <th>Mã đơn đặt</th>
                                     <th>Nhân viên đặt</th>
-                                    <th>Người đặt</th>
-
+                                    <th>Ngày đặt</th>
+                                    
                                     <th>Xem chi tiết đơn đặt</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -158,51 +158,6 @@
                                     <td>Nguyễn Tiến</td>
                                     <td><span class="badge bg-success"><a href="chi-tiet-don-dat.html">Nhấn để xem</a>
                                         </span></td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                              </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0002</td>
-                                    <td>Nguyễn Thị Kim Yến</td>
-                                    <td>Nguyễn Tiến</td>
-                                    <td><span class="badge bg-success"><a href="chi-tiet-don-dat.html">Nhấn để xem</a>
-                                        </span></td>
-
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                              </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0003</td>
-                                    <td>Nguyễn Hoàng Thái Nhật</td>
-                                    <td>Nguyễn Tiến</td>
-                                    <td><span class="badge bg-success"><a href="chi-tiet-don-dat.html">Nhấn để xem</a>
-                                        </span></td>
-
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                              </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0004</td>
-                                    <td>Võ Thành Nam</td>
-                                    <td>Nguyễn Tiến</td>
-                                    <td><span class="badge bg-success"><a href="chi-tiet-don-dat.html">Nhấn để xem</a>
-                                        </span></td>
-
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
                                                 <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
@@ -313,10 +268,84 @@ MODAL
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <script>
-        function deleteRow(r) {
-            var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("myTable").deleteRow(i);
+
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${day}-${month}-${year}`;
+            return formattedDate;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/QL/dondat', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    renderTableData(data.data)
+                    
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+                
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+    
+                    // console.log(item)
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <tr>
+                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                            <td>${item.MADD}</td>
+                            <td>${item.NVDAT}</td>
+                            <td>${DataTime(item.NGDAT)}</td>
+                            <td>
+                                <span class="badge bg-success button_${item.MADD}">
+                                    <a href="chi-tiet-don-dat.html">Nhấn để xem</a>
+                                </span>
+                            </td>
+                            <td>
+                                <button 
+                                class="btn btn-primary btn-sm trash" type="button" title="Xóa" 
+                                onclick='deleteItem(${String(item.MADD)})'
+                                ><i
+                                    class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
+                                    data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+
+                    
+
+                    
+                });
+
+                
+            }
+        });
+            
+
+        function deleteItem(id) {
+            console.log("Delete", "000"+id);
+            fetch('')
+        }
+
+        // function deleteRow(r) {
+        //     var i = r.parentNode.parentNode.rowIndex;
+        //     document.getElementById("myTable").deleteRow(i);
+        // }
         jQuery(function () {
             jQuery(".trash").click(function () {
                 swal({
