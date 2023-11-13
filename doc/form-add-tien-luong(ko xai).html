@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Quản trị Admin</title>
+  <title>Danh sách đơn hàng | Quản trị Admin</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
     <ul class="app-menu">
       <li id="item1"><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i
             class='app-menu__icon bx bx-cart-alt'></i>
-          <span class="app-menu__label">Thanh Toán</span></a></li>
+          <span class="app-menu__label">Thanh toán</span></a></li>
       <li id="item2"><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Tổng quát</span></a></li>
       <li id="item3"><a class="app-menu__item " href="quan-ly-dat-hang.html"><i
@@ -64,21 +64,20 @@
       </li>
       <li id="item6"><a class="app-menu__item" href="quan-ly-hoa-don.html"><i
             class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý hóa đơn</span></a></li>
-      <li id="item7"><a class="app-menu__item  active" href="quan-ly-phieu-kiem.html"><i
+      <li id="item7"><a class="app-menu__item" href="quan-ly-phieu-kiem.html"><i
             class='app-menu__icon bx bx-run'></i><span class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
       <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý phiếu hủy
           </span></a></li> -->
       <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i
-            class='app-menu__icon bx bx-building-house'></i><span class="app-menu__label">Quản lý tồn kho</span></a>
-      </li>
-      <li id="item8,1"><a class="app-menu__item" href="quan-ly-nhap-hang.html"><i
-            class='app-menu__icon bx bx-cart-add'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
-      </li>
-      <li id="item8,2"><a class="app-menu__item" href="quan-ly-nha-cung-cap.html"><i
-            class='app-menu__icon bx bxs-factory'></i><span class="app-menu__label">Quản lý nhà cung cấp</span></a>
-      </li>
+            class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý tồn kho</span></a></li>
+            <li id="item8,1"><a class="app-menu__item" href="quan-ly-nhap-hang.html"><i
+              class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
+  </li>
+  <li id="item8,2"><a class="app-menu__item" href="quan-ly-nha-cung-cap.html"><i
+              class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhà cung cấp</span></a>
+  </li>
       <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
@@ -92,72 +91,82 @@
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Quản lý phiếu kiểm</li>
-        <li class="breadcrumb-item"><a href="#">Tạo mới</a></li>
+        <li class="breadcrumb-item">Bản kê lương</li>
+        <li class="breadcrumb-item"><a href="#">Thêm mới</a></li>
       </ul>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới chức năng</h3>
+          <h3 class="tile-title">Tạo mới bảng kê lương</h3>
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
                 <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><b><i
-                      class="fas fa-folder-plus"></i> Tạo tình trạng mới</b></a>
+                      class="fas fa-folder-plus"></i> Tạo trạng thái mới</b></a>
               </div>
 
             </div>
             <form class="row">
-              <div class="form-group col-md-4">
-                <label class="control-label">Mã phiếu kiểm</label>
-                <input class="form-control" type="text">
+              <div class="form-group col-md-3">
+                <label class="control-label">Tên nhân viên</label>
+                <input class="form-control" type="text" placeholder="nhập họ tên nhân viên">
               </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Nhân viên kiểm</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Ngày lập phiếu</label>
-                <input class="form-control" type="date">
-              </div>
-              <!-- <div class="form-group col-md-4">
-                        <label for="exampleSelect1" class="control-label">Chức vụ</label>
-                        <select class="form-control" id="exampleSelect1">
-                          <option>-- Chọn chức vụ --</option>
-                          <option>Bán hàng</option>
-                          <option>Tư vấn</option>
-                          <option>Dịch vụ</option>
-                          <option>Thu Ngân</option>
-                          <option>Quản kho</option>
-                          <option>Bảo trì</option>
-                          <option>Kiểm hàng</option>
-                          <option>Bảo vệ</option>
-                          <option>Tạp vụ</option>
-                        </select>
-                      </div> -->
-              <!-- <div class="form-group col-md-4">
-                            <label class="control-label">Nhập lý do</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                          </div> -->
-              <div class="form-group col-md-4">
-                <label for="exampleSelect1" class="control-label">Tình trạng</label>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Giới tính</label>
                 <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn tình trạng --</option>
-                  <option>Đã kiểm hàng</option>
-                  <option>Đang kiểm hàng</option>
-                  <option>Chưa kiểm hàng</option>
-
+                  <option>-- Chọn giới tính --</option>
+                  <option>Nam</option>
+                  <option>Nữ</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label"> Chức vụ</label>
+                <select class="form-control" id="exampleSelect1">
+                  <option>-- Chọn chức vụ --</option>
+                  <option>Bán hàng</option>
+                  <option>Tư vấn</option>
+                  <option>Dịch vụ</option>
+                  <option>Thu Ngân</option>
+                  <option>Quản kho</option>
+                  <option>Bảo trì</option>
+                  <option>Kiểm hàng</option>
+                  <option>Bảo vệ</option>
+                  <option>Tạp vụ</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label class="control-label">Tiền lương</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group col-md-3">
+                <label class="control-label">Trừ lương</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group col-md-3">
+                <label class="control-label">Tiền thưởng</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group col-md-3">
+                <label class="control-label">Tổng nhận</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="exampleSelect1" class="control-label">Trạng thái</label>
+                <select class="form-control" id="exampleSelect1">
+                  <option>-- Chọn trạng thái --</option>
+                  <option>Đã nhận tiền</option>
+                  <option>Chưa nhận tiền</option>
                 </select>
               </div>
 
-              <div class="tile-footer">
-              </div>
+
           </div>
           <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" href="/doc/table-data-banned.html">Hủy bỏ</a>
+          <a class="btn btn-cancel" href="/doc/quan-ly-hoa-don.html">Hủy bỏ</a>
         </div>
   </main>
+
 
   <!--
   MODAL
@@ -171,11 +180,11 @@
           <div class="row">
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
-                <h5>Tạo trình trạng mới</h5>
+                <h5>Tạo trạng thái mới</h5>
               </span>
             </div>
             <div class="form-group col-md-12">
-              <label class="control-label">Nhập tình trạng</label>
+              <label class="control-label">Nhập tên trạng thái mới</label>
               <input class="form-control" type="text" required>
             </div>
           </div>
@@ -192,6 +201,8 @@
   <!--
 MODAL
 -->
+
+
 
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>
