@@ -80,7 +80,8 @@
                         class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
             </li>
             <li id="item8,2"><a class="app-menu__item active" href="quan-ly-nha-cung-cap.html"><i
-                        class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhà cung cấp</span></a>
+                        class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhà cung
+                        cấp</span></a>
             </li>
             <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
                         class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh
@@ -150,13 +151,13 @@
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <!-- <tbody>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td>0001</td>
                                     <td>Cái nịt rét tao rình</td>
                                     <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
-                                    
+
                                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
@@ -164,7 +165,53 @@
                                         </button>
                                     </td>
                                 </tr>
+<<<<<<< HEAD
                             </tbody>
+=======
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                    <td>0002</td>
+                                    <td>One Champ Food</td>
+                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
+
+
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
+                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                    <td>0003</td>
+                                    <td>Đập đá Store</td>
+                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
+
+
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
+                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                    <td>0004</td>
+                                    <td>Huấn Rose World</td>
+                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
+
+
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
+                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody> -->
+>>>>>>> 91ecca91e4641ed0274f75bbcd863af70c339c5e
                         </table>
                     </div>
                 </div>
@@ -175,7 +222,7 @@
     <!--
   MODAL
 -->
-    <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+    <!-- <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
         data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -199,8 +246,9 @@
                         </div>
                         <div class="form-group  col-md-6">
                             <label class="control-label">Địa chỉ</label>
-                            <input class="form-control" type="text" required value="Đường cách mạng Wibu, quận 31289, Thành phố One">
-                        </div>
+                            <input class="form-control" type="text" required
+                                value="Đường cách mạng Wibu, quận 31289, Thành phố One">
+                        </div> -->
                         <!-- <div class="form-group  col-md-6">
                             <label class="control-label">Tổng</label>
                             <input class="form-control" type="number" required value="Bùi Xuân Huấn">
@@ -311,6 +359,194 @@ MODAL
         //     ]
         //   });
         // });
+
+        function DataTimeNgaySinh(data) {
+            // Split the string into components
+            var dateComponents = data.split("-");
+
+            // Rearrange the components in the "mm-dd-yyyy" format
+            var outputDateString = dateComponents[0] + "-" + dateComponents[2] + "-" + dateComponents[1];
+
+            return outputDateString;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('http://localhost:3000/QL/nhacungcap', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    renderTableData(data.data)
+
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+
+                    const dataDelete = item.MANV + '';
+                    console.log(dataDelete)
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                          <tr>
+                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                        <td>${item.MANCC}</td>
+                        <td>${item.TENNCC}</td>
+                        <td>${item.DIACHI}</td>
+                        <td class="table-td-center">
+                          <button 
+                          class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                          onclick="deleteItemTK('${item.MANV}')"><i class="fas fa-trash-alt"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                            data-toggle="modal" data-target="#ModalUP"
+                            onclick="update('${item.MANCC}',
+                              '${item.TENNCC}',
+                              '${item.DIACHI}',
+            
+                              )"
+                            ><i class="fas fa-edit"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+
+
+            }
+        });
+
+        function update(id, tenNCC, diaChi) {
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+            <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+              data-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="form-group  col-md-12">
+                          <span class="thong-tin-thanh-toan">
+                            <h5>Chỉnh sửa thông tin nhà cung cấp</h5>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Mã nhà cung cấp</label>
+                          <input class="form-control" type="text" required id="maNCC_${id}" value="${id}" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Tên nhà cung cấp</label>
+                          <input class="form-control" type="text" id="tenNV_${id}" required value="${tenNV}">
+                        </div>
+                        <div class="form-group  col-md-6">
+                          <label class="control-label">Địa chỉ</label>
+                          <input class="form-control" type="text" required id="diaChi_${id}" value="${diaChi}">
+                        </div>
+                       
+
+                        
+                      </div>
+                      
+                      <BR>
+                      <button class="btn btn-save" type="button" onclick="updateSave(
+                        '${id}',
+                        '${tenNCC}',
+                        '${diaChi}',
+                        
+                      )">Lưu lại</button>
+                      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                      <BR>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+        }
+
+        function updateSave(
+            idSave,
+            tenNCCSave,
+            diaChiSave,
+            ) {
+
+            const inputTenNCC = document.getElementById(`tenNCC_${idSave}`).value;
+            const inputDiaChiNCC = document.getElementById(`diaChi_${idSave}`).value;
+
+
+
+            const dataUpdate = {
+                MANCC: idSave,
+                TENNCC: inputTenNVID,
+                DIACHI: diaChiSave,
+                
+            }
+
+            console.log(JSON.stringify(dataUpdate))
+
+            fetch('http://localhost:3000/QL/nhacungcap', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataUpdate)
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.status === 'success') {
+                        location.reload();
+                    } else {
+                        alert('Cần bạn nhập đúng')
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+        }
+
+
+        function deleteItemTK(id) {
+            const dataDelete = {
+                MANV: id
+            }
+
+            fetch('http://localhost:3000/QL/nhacungcap', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json', // Adjust the content type if necessary
+                    // Add any other headers if needed (e.g., authorization)
+                },
+                body: JSON.stringify(dataDelete)
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data)
+                    if (data.status === 'delete success') {
+                        location.reload();
+                    } else {
+                        alert('Dữ liệu bị xung đột')
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+
 
 
         //Thời Gian
