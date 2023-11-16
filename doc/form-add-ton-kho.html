@@ -227,19 +227,19 @@
             <form class="row">
               <div class="form-group col-md-3">
                 <label class="control-label">Mã sản phẩm </label>
-                <input class="form-control" type="number" placeholder="">
+                <input class="form-control" type="number" placeholder="" id="maSP">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Mã nhà cung cấp</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" id="maNCC">
               </div>
               <!-- <div class="form-group col-md-3">
                 <label class="control-label">Mã nhà cung cấp </label>
                 <input class="form-control" type="number" placeholder="">
               </div> -->
               <div class="form-group col-md-3">
-                <label class="control-label">Tên sản phẩm </label>
-                <input class="form-control" type="text" placeholder="">
+                <label class="control-label">Tên sản phẩm tồn kho</label>
+                <input class="form-control" type="text" placeholder="" id="tenSPTK">
               </div>
               <!-- <div class="form-group col-md-3 ">
                   <label for="exampleSelect1" class="control-label">Tình trạng</label>
@@ -253,21 +253,17 @@
                 <label for="exampleSelect1" class="control-label">Loại</label>
                 <select class="form-control" id="exampleSelect1">
                   <option>-- Chọn loại --</option>
-                  <option>Bánh mì</option>
-                  <option>Cua nướng</option>
-                  <option>Cơm cuộn</option>
-                  <option>Cuốn</option>
-                  <option>Thịt</option>
-                  <!-- <option>Giường người lớn</option>
-                            <option>Giường trẻ em</option>
-                            <option>Bàn trang điểm</option>
-                            <option>Giá đỡ</option> -->
+                  <option value="Bánh mì">Bánh mì</option>
+                  <option value="Cua nướng">Cua nướng</option>
+                  <option value="Cơm cuộn">Cơm cuộn</option>
+                  <option value="Cuốn">Cuốn</option>
+                  <option value="Thịt">Thịt</option>
                 </select>
               </div>
 
               <div class="form-group  col-md-3">
                 <label class="control-label">Số lượng tồn</label>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" id="soLuongTon">
               </div>
               <!-- <div class="form-group col-md-3 ">
                 <label for="exampleSelect1" class="control-label">Nhà cung cấp</label>
@@ -281,21 +277,21 @@
               </div> -->
               <div class="form-group col-md-3">
                 <label class="control-label">Đơn giá</label>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" id="donGia">
               </div>
               <div class="form-group col-md-3">
                 <label class="control-label">Hạn sử dụng</label>
-                <input class="form-control" type="date">
+                <input class="form-control" type="date" id="HSD">
               </div>
               <!-- <div class="form-group col-md-12">
                 <label class="control-label">Ảnh sản phẩm</label>
                 <div id="myfileupload">
                   <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);" />
                 </div> -->
-              <div id="thumbbox">
+              <!-- <div id="thumbbox">
                 <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none" />
                 <a class="removeimg" href="javascript:"></a>
-              </div>
+              </div> -->
               <!-- <div id="boxchoice">
                   <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn ảnh</a>
                   <p style="clear:both"></p>
@@ -309,7 +305,7 @@
           </div> -->
 
         </div>
-        <button class="btn btn-save" type="button">Lưu lại</button>
+        <button class="btn btn-save" type="button" onclick="insertThongTinNhanVien()">Lưu lại</button>
         <a class="btn btn-cancel" href="table-data-product.html">Hủy bỏ</a>
       </div>
   </main>
@@ -446,25 +442,75 @@ MODAL
   <script>
     const inpFile = document.getElementById("inpFile");
     const loadFile = document.getElementById("loadFile");
-    <!-- const previewContainer = document.getElementById("imagePreview");
-    const previewContainer = document.getElementById("imagePreview"); -->
-    const previewImage = previewContainer.querySelector(".image-preview__image");
-    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
-    inpFile.addEventListener("change", function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        previewDefaultText.style.display = "none";
-        previewImage.style.display = "block";
-        reader.addEventListener("load", function () {
-          previewImage.setAttribute("src", this.result);
-        });
-        reader.readAsDataURL(file);
-      }
-    });
+    const previewContainer = document.getElementById("imagePreview");
+    // const previewImage = previewContainer.querySelector(".image-preview__image");
+    // const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    // inpFile.addEventListener("change", function () {
+    //   const file = this.files[0];
+    //   if (file) {
+    //     const reader = new FileReader();
+    //     previewDefaultText.style.display = "none";
+    //     previewImage.style.display = "block";
+    //     reader.addEventListener("load", function () {
+    //       previewImage.setAttribute("src", this.result);
+    //     });
+    //     reader.readAsDataURL(file);
+    //   }
+    // });
 
   </script>
   <script>
+
+    function DataTimeNgaySinh(data) {
+      // Split the string into components
+      var dateComponents = data.split("-");
+
+      // Rearrange the components in the "mm-dd-yyyy" format
+      var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+      return outputDateString;
+    }
+
+    function insertThongTinNhanVien() {
+      var valueMaSP = document.getElementById('maSP').value;
+      var valueMaNCC = document.getElementById('maNCC').value;
+      var valueTenSPTK = document.getElementById('tenSPTK').value;
+      var valueSoLuongTon = document.getElementById('soLuongTon').value;
+      var valueLoai = document.getElementById('exampleSelect1').value;
+      var valueDonGia = document.getElementById('donGia').value;
+      var valueHSD = document.getElementById('HSD').value;
+      
+      const dataInsert = {
+        MASP: valueMaSP,
+        MANCC: valueMaNCC,
+        TenSPTK: valueTenSPTK,
+        Loai: valueLoai,
+        SLTon: valueSoLuongTon,
+        DONGIA: valueDonGia,
+        HSD: valueHSD
+      };
+
+      fetch('http://localhost:3000/QL/tonkho', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataInsert)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // if (data.status === 'success') {
+          //   location.href = './table-data-product.html'
+          // } else {
+          //   alert('Bạn nhập sai yêu cầu')
+          // }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
 

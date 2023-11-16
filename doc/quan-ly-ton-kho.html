@@ -147,81 +147,12 @@
 
                   <th>Đơn giá</th>
                   <th>Hạn sử dụng</th>
-
+                  <th>Tổng tiền</th>
                   <th>Chức năng</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0001</td>
-                  <td>KT01</td>
-                  <td>Cơm cuộn chiên</td>
-                  <td>Cơm</td>
-                  <td>20</td>
-                  <td>20.000d</td>
-                  <td><span class="badge bg-success">20/10/2023</span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0002</td>
-                  <td>KT01</td>
-
-                  <td>Cơm cuộn chiên</td>
-
-                  <td>Cơm</td>
-                  <td>20</td>
-                  <td>20.000d</td>
-                  <td><span class="badge bg-danger">20/10/2023</span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0003</td>
-                  <td>KT01</td>
-
-                  <td>Cơm cuộn chiên</td>
-
-                  <td>Cơm</td>
-                  <td>20</td>
-                  <td>20.000d</td>
-                  <td><span class="badge bg-warning">20/10/2023</span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0004</td>
-                  <td>KT01</td>
-
-                  <td>Cơm cuộn chiên</td>
-
-                  <td>Cơm</td>
-                  <td>20</td>
-                  <td>20.000d</td>
-                  <td><span class="badge bg-danger">20/10/2023</span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -233,85 +164,11 @@
      <!--
   MODAL
 -->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-data-keyboard="false">
-<div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
-
-    <div class="modal-body">
-      <div class="row">
-        <div class="form-group  col-md-12">
-          <span class="thong-tin-thanh-toan">
-            <h5>Chỉnh sửa thông tin đặt hàng</h5>
-          </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label class="control-label">Mã sản phẩm</label>
-          <input class="form-control" type="text" required value="#CD2187" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Mã nhà cung cấp</label>
-          <input class="form-control" type="text" required value="Minh Tiến">
-        </div>
-        <div class="form-group  col-md-6">
-          <label class="control-label">Tên sản phẩm</label>
-          <input class="form-control" type="text" required value="Bùi Xuân Huấn">
-        </div>
-        <div class="form-group  col-md-6">
-          <label for="exampleSelect1" class="control-label">Loại</label>
-          <select class="form-control" id="exampleSelect1">
-
-            <option>Cơm</option>
-            <option>Thịt </option>
-            <option>Rau</option>
-          </select>
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Số lượng tồn</label>
-          <input class="form-control" type="number" required value="20">
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Đơn giá</label>
-          <input class="form-control" type="number" value="30.000">
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Hạn sử dụng</label>
-          <input class="form-control" type="date" value="">
-        </div>
-        <!-- <div class="form-group  col-md-6">
-          <label for="exampleSelect1" class="control-label">Chức vụ</label>
-          <select class="form-control" id="exampleSelect1">
-            <option>Bán hàng</option>
-            <option>Tư vấn</option>
-            <option>Dịch vụ</option>
-            <option>Thu Ngân</option>
-            <option>Quản kho</option>
-            <option>Bảo trì</option>
-            <option>Kiểm hàng</option>
-            <option>Bảo vệ</option>
-            <option>Tạp vụ</option>
-          </select>
-        </div> -->
-
-        
-      </div>
-      <!-- <BR>
-      <a href="#" style="    float: right;
-    font-weight: 600;
-    color: #ea0000;">Chỉnh sửa nâng cao</a>
-      <BR> -->
-      <BR>
-      <button class="btn btn-save" type="button">Lưu lại</button>
-      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-      <BR>
-    </div>
-    <div class="modal-footer">
-    </div>
-  </div>
+<div id="form_input_updated">
+  
 </div>
-</div>
+
+
 <!--
 MODAL
 -->
@@ -332,6 +189,268 @@ MODAL
   <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
   <script>
+
+        // Code full chức năng
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${month}-${day}-${year}`;
+            return formattedDate;
+        }
+
+        function DataTimeNgaySinh(data) {
+          // Split the string into components
+          var dateComponents = data.split("-");
+
+          // Rearrange the components in the "mm-dd-yyyy" format
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+          return outputDateString;
+        }    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/QL/tonkho', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    renderTableData(data.data)
+                    
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+                
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                      <tr>
+                        <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                        <td>${item.MASP}</td>
+                        <td>${item.MANCC}</td>
+                        <td>${item.TenSPTK}</td>
+                        <td>${item.Loai}</td>
+                        <td>${item.SLTon}</td>
+                        <td>${item.DONGIA}</td>
+                        <td>${DataTime(item.HSD)}</td>
+                        <td>${Number(item.SLTon) * Number(item.DONGIA)}</td>
+                            <button 
+                              class="btn btn-primary btn-sm trash" 
+                              type="button" 
+                              title="Xóa"
+                              onclick="deleteItemTonKho('${item.MASP}')"
+                            >
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
+                              <button 
+                                class="btn btn-primary btn-sm edit" 
+                                title="Sửa" id="show-emp" 
+                                data-toggle="modal"
+                                data-target="#ModalUP"
+                                onclick="update(
+                                  '${item.MASP}',
+                                  '${item.MANCC}', 
+                                  '${item.TenSPTK}', 
+                                  '${item.Loai}',
+                                  '${item.SLTon}', 
+                                  '${item.DONGIA}',  
+                                  '${DataTime(item.HSD)}' 
+                                )"
+                              ><i class="fas fa-edit"></i>
+                            </button>
+                      </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+              });
+            }
+          });
+
+        
+          function deleteItemTonKho(id) {
+            const dataDelete = {
+              MASP: id
+            }
+
+            fetch('http://localhost:3000/QL/tonkho', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+                // Add any other headers if needed (e.g., authorization)
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data)
+                // if (data.status === 'delete success') {
+                //   location.reload();
+                // } else {
+                //   alert('Dữ liệu bị xung đột')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          }
+
+          function update(
+            MASP,
+            MANCC,
+            TenSPTK,
+            Loai,
+            SLTon,
+            DONGIA,
+            HSD
+          ) {
+
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+              <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                data-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="form-group  col-md-12">
+                          <span class="thong-tin-thanh-toan">
+                            <h5>Chỉnh sửa thông tin hóa đơn</h5>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Mã sản phẩm</label>
+                          <input class="form-control" type="text" required value="${MASP}" id="maSanPham_${MASP}" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Mã nhà cung cấp</label>
+                          <input class="form-control" type="text" required value="${MANCC}" id="maNhaCungCap_${MASP}">
+                        </div>
+                        <div class="form-group  col-md-6">
+                          <label class="control-label">Tên sản phẩm tồn kho</label>
+                          <input class="form-control" type="text" required value="${TenSPTK}" id="tenSanPhamTK_${MASP}">
+                        </div>
+
+                      
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Loại</label>
+                          <input class="form-control" type="text" required value="${Loai}" id="loai_${MASP}">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Số lượng tồn</label>
+                          <input class="form-control" type="text" value="${SLTon}" id="soLuongTon_${MASP}">
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Đơn giá</label>
+                          <input class="form-control" type="text" value="${DONGIA}" id="donGia_${MASP}">
+                        </div>
+
+                        <div class="form-group  col-md-6">
+                          <label class="control-label">Hạn sử dụng</label>
+                          <input class="form-control" type="date" required value="${HSD}" id="hsd_${MASP}">
+                        </div>
+
+                      </div>
+                      <!-- <BR>
+                      <a href="#" style="    float: right;
+                    font-weight: 600;
+                    color: #ea0000;">Chỉnh sửa nâng cao</a>
+                      <BR> -->
+                      <BR>
+                      <button 
+                        class="btn btn-save" 
+                        type="button" 
+                        onclick="updateSave(
+                          '${MASP}',
+                          '${MANCC}',
+                          '${TenSPTK}',
+                          '${Loai}',
+                          '${SLTon}',
+                          '${DONGIA}',
+                          '${HSD}'
+                        )"
+                      >Lưu lại</button>
+                      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                      <BR>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+            }
+
+            function updateSave(
+              maSPSave, 
+              maNCCSave, 
+              tenSPSave, 
+              loaiSave, 
+              soLuongTonSave, 
+              donGiaSave, 
+              hanSuDung, 
+            ) {
+
+            const inputSanPham = document.getElementById(`maSanPham_${maSPSave}`).value;
+            const inputMaNCC = document.getElementById(`maNhaCungCap_${maSPSave}`).value;
+            const inputTenSanPhamTK = document.getElementById(`tenSanPhamTK_${maSPSave}`).value;
+            const inputLoai = document.getElementById(`loai_${maSPSave}`).value;
+
+            const inputSoLuongTon = document.getElementById(`soLuongTon_${maSPSave}`).value;
+            const inputDonGia = document.getElementById(`donGia_${maSPSave}`).value;
+            const inputHSD = document.getElementById(`hsd_${maSPSave}`).value;
+
+
+            const dataUpdate = {
+              MASP: inputSanPham,
+              MANCC: inputMaNCC,
+              TenSPTK: inputTenSanPhamTK,
+              Loai: inputLoai,
+              SLTon: inputSoLuongTon,
+              DONGIA: inputDonGia,
+              HSD: DataTimeNgaySinh(inputHSD),
+            };
+
+            console.log(JSON.stringify(dataUpdate))
+
+            fetch('http://localhost:3000/QL/tonkho', {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataUpdate)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                if (data.status === 'success') {
+                  location.reload();
+                } else {
+                  alert('Cần bạn nhập đúng')
+                }
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+
+            }
+
     function deleteRow(r) {
       var i = r.parentNode.parentNode.rowIndex;
       document.getElementById("myTable").deleteRow(i);

@@ -135,75 +135,17 @@
                   <th width="10"><input type="checkbox" id="all"></th>
                   <th>Mã phiếu kiểm</th>
                   <th>Nhân viên kiểm</th>
-                  <th>Ngày lập phiếu</th>
-
-                  <th>Tình trạng</th>
-                  <th>Xem chi tiết đơn đặt</th>
-
+                  <th>Mã sản phẩm</th>
+                  <th>Đơn giá</th>
+                  <th>Ngày lập</th>
+                  <th>Trình trạng</th>
+                  <th>Số lượng giao</th>
+                  <th>Tổng cộng</th>
                   <th>Chức năng</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0001</td>
-                  <td>Kiều Thái Anh</td>
-                  <td>10/09/2020</td>
-                  <td><span class="badge bg-success">Đã kiểm hàng</span></td>
-                  <td><span class="badge bg-success"><a href="chi-tiet-phieu-kiem.html">Nhấn để xem</a>
-                  </span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0002</td>
-                  <td>Nguyễn Thị Kim Yến</td>
-                  <td>02/12/2022</td>
-                  <td><span class="badge bg-danger">Chưa kiểm hàng</span></td>
-                  <td><span class="badge bg-success"><a href="chi-tiet-phieu-kiem.html">Nhấn để xem</a>
-                  </span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0003</td>
-                  <td>Nguyễn Hoàng Thái Nhật</td>
-                  <td>07/09/2023</td>
-                  <td><span class="badge bg-warning">Đang kiểm hàng</span></td>
-                  <td><span class="badge bg-success"><a href="chi-tiet-phieu-kiem.html">Nhấn để xem</a>
-                  </span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                  <td>0004</td>
-                  <td>Võ Thành Nam</td>
-                  <td>19/09/2022</td>
-                  <td><span class="badge bg-danger">Chưa kiểm hàng</span></td>
-                  <td><span class="badge bg-success"><a href="chi-tiet-phieu-kiem.html">Nhấn để xem</a>
-                  </span></td>
-                  <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                        class="fas fa-trash-alt"></i></button>
-                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                        data-target="#ModalUP"><i class="fas fa-edit"></i>
-                      </button>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -215,80 +157,8 @@
       <!--
   MODAL
 -->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-data-keyboard="false">
-<div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content">
+<div id="form_input_updated">
 
-    <div class="modal-body">
-      <div class="row">
-        <div class="form-group  col-md-12">
-          <span class="thong-tin-thanh-toan">
-            <h5>Chỉnh sửa thông tin phiếu kiểm</h5>
-          </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label class="control-label">Mã phiếu kiểm</label>
-          <input class="form-control" type="text" required value="#CD2187" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Nhân viên kiểm</label>
-          <input class="form-control" type="text" required value="Minh Tiến">
-        </div>
-        <div class="form-group  col-md-6">
-          <label class="control-label">Ngày lập phiếu</label>
-          <input class="form-control" type="date" required value="31/10/2023">
-        </div>
-        <!-- <div class="form-group col-md-6">
-          <label class="control-label">Địa chỉ email</label>
-          <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
-        </div>
-        <div class="form-group col-md-6">
-          <label class="control-label">Ngày sinh</label>
-          <input class="form-control" type="date" value="15/03/2000">
-        </div> -->
-        <!-- <div class="form-group  col-md-6">
-          <label for="exampleSelect1" class="control-label">Chức vụ</label>
-          <select class="form-control" id="exampleSelect1">
-            <option>Bán hàng</option>
-            <option>Tư vấn</option>
-            <option>Dịch vụ</option>
-            <option>Thu Ngân</option>
-            <option>Quản kho</option>
-            <option>Bảo trì</option>
-            <option>Kiểm hàng</option>
-            <option>Bảo vệ</option>
-            <option>Tạp vụ</option>
-          </select>
-        </div> -->
-
-        <div class="form-group  col-md-6">
-          <label for="exampleSelect1" class="control-label">Tình trạng</label>
-          <select class="form-control" id="exampleSelect1">
-
-            <option>Đã kiểm hàng</option>
-            <option>Đang kiểm hàng</option>
-            <option>Chưa kiểm hàng</option>
-
-          </select>
-        </div>
-      </div>
-      <!-- <BR>
-      <a href="#" style="    float: right;
-    font-weight: 600;
-    color: #ea0000;">Chỉnh sửa nâng cao</a>
-      <BR> -->
-      <BR>
-      <button class="btn btn-save" type="button">Lưu lại</button>
-      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-      <BR>
-    </div>
-    <div class="modal-footer">
-    </div>
-  </div>
-</div>
 </div>
 <!--
 MODAL
@@ -310,6 +180,265 @@ MODAL
   <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
   <script>
+
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${month}-${day}-${year}`;
+            return formattedDate;
+        }
+
+        function DataTimeNgaySinh(data) {
+          // Split the string into components
+          var dateComponents = data.split("-");
+
+          // Rearrange the components in the "mm-dd-yyyy" format
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+          return outputDateString;
+        };
+
+        function update(
+          MAPK,
+          NVLAP,
+          MASP,
+          DONGIA,  
+          NGLAP, 
+          TRANGTHAI,
+          SLGIAO  
+        ) {
+          const formUpdate = document.createElement('div');
+          formUpdate.innerHTML = `
+          <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="form-group  col-md-12">
+                      <span class="thong-tin-thanh-toan">
+                        <h5>Chỉnh sửa thông tin hóa đơn</h5>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label class="control-label">Mã phiếu kiểm</label>
+                      <input class="form-control" type="text" required value="${MAPK}" id="maPhieuKiem_${MAPK}" disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="control-label">Mã nhân viên xuất đơn</label>
+                      <input class="form-control" type="text" required value="${NVLAP}" id="maNhanVien_${MAPK}">
+                    </div>
+                    <div class="form-group  col-md-6">
+                      <label class="control-label">Mã khách hàng</label>
+                      <input class="form-control" type="text" required value="${MASP}" id="maSanPham_${MAPK}">
+                    </div>
+
+                  
+                    <div class="form-group col-md-6">
+                      <label class="control-label">Mã sản phẩm</label>
+                      <input class="form-control" type="text" required value="${DONGIA}" id="maDonGia_${MAPK}">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="control-label">Ngày xuất</label>
+                      <input class="form-control" type="date" value="${NGLAP}" id="ngayLap_${MAPK}">
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                      <label class="control-label">Đơn giá</label>
+                      <input class="form-control" type="text" value="${TRANGTHAI}" id="trangThai_${MAPK}">
+                    </div>
+
+                    <div class="form-group  col-md-6">
+                      <label class="control-label">Số lượng</label>
+                      <input class="form-control" type="text" required value="${SLGIAO}" id="soLuongGiao_${MAPK}">
+                    </div>
+
+                  </div>
+                  <!-- <BR>
+                  <a href="#" style="    float: right;
+                font-weight: 600;
+                color: #ea0000;">Chỉnh sửa nâng cao</a>
+                  <BR> -->
+                  <BR>
+                  <button 
+                    class="btn btn-save" 
+                    type="button" 
+                    onclick="updateSave(
+                      '${MAPK}',
+                      '${NVLAP}',
+                      '${MASP}',
+                      '${DONGIA}',
+                      '${NGLAP}',
+                      '${TRANGTHAI}',
+                      '${SLGIAO}'
+                    )"
+                  >Lưu lại</button>
+                  <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                  <BR>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+          `;
+
+          const parrentElement = document.getElementById('form_input_updated');
+          parrentElement.appendChild(formUpdate);
+
+        }
+
+          function updateSave(
+            MAPK,
+            NVLAP,
+            MASP,
+            DONGIA,  
+            NGLAP, 
+            TRANGTHAI,
+            SLGIAO  
+          ) {
+
+            const inputMaDonHang = document.getElementById(`maPhieuKiem_${MAPK}`).value;
+            const inputMaNhanVien = document.getElementById(`maNhanVien_${MAPK}`).value;
+            const inputMaPham = document.getElementById(`maSanPham_${MAPK}`).value;
+
+            const inputDonGia = document.getElementById(`maDonGia_${MAPK}`).value;
+            const inputNgayLap = document.getElementById(`ngayLap_${MAPK}`).value;
+            const inputTinhTrang = document.getElementById(`trangThai_${MAPK}`).value;
+            const inputSoLuongGiao = document.getElementById(`soLuongGiao_${MAPK}`).value;
+
+            const dataUpdate = {
+              MAPK: inputMaDonHang,
+              NVLAP: inputMaNhanVien,
+              MASP: inputMaPham,
+              DONGIA: inputDonGia,  
+              NGLAP: DataTimeNgaySinh(inputNgayLap), 
+              TRANGTHAI: inputTinhTrang,
+              SLGIAO: inputSoLuongGiao
+            };
+
+            console.log(JSON.stringify(dataUpdate))
+            
+            fetch('http://localhost:3000/QL/phieukiem', {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataUpdate)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                // if (data.status === 'success') {
+                //   location.reload();
+                // } else {
+                //   alert('Cần bạn nhập đúng')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+
+          }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          fetch('http://localhost:3000/QL/phieukiem', {
+              method: 'GET',
+          })
+              .then((response) => response.json())
+              .then((data) => {
+                  renderTableData(data.data)
+                  
+              })
+              .catch((error) => {
+                  console.log(error)
+              });
+
+              
+          function renderTableData(data) {
+              var tableBody = document.getElementById('sampleTable');
+
+              data.forEach(function (item) {
+
+                  
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
+                    <tr>
+                      <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                      <td>${item.MAPK}</td>
+                      <td>${item.NVLAP}</td>
+                      <td>${item.MASP}</td>
+                      <td>${item.DONGIA}</td>
+                      <td>${DataTime(item.NGLAP)}</td>
+                      <td>${item.TRANGTHAI}</td>
+                      <td>${item.SLGIAO}</td>
+                      <td>${Number(item.SLGIAO) * Number(item.DONGIA)}</td>
+                      <button 
+                        class="btn btn-primary btn-sm trash" 
+                        type="button" 
+                        title="Xóa"
+                        onclick="deleteItemPK('${item.MAPK}')"
+                      >
+                      <i class="fas fa-trash-alt"></i>
+                      </button>
+                        <button 
+                          class="btn btn-primary btn-sm edit" 
+                          title="Sửa" id="show-emp" 
+                          data-toggle="modal"
+                          data-target="#ModalUP"
+                          onclick="update(
+                            '${item.MAPK}',
+                            '${item.NVLAP}',
+                            '${item.MASP}',
+                            '${item.DONGIA}',  
+                            '${item.NGLAP}', 
+                            '${item.TRANGTHAI}',
+                            '${item.SLGIAO}'  
+                          )"
+                        ><i class="fas fa-edit"></i>
+                      </button>
+                    </tr>
+                  `;
+
+                  tableBody.appendChild(row);
+            });
+          }
+        });
+
+        function deleteItemPK(id) {
+            const dataDelete = {
+              MAPK: id
+            }
+
+            fetch('http://localhost:3000/QL/phieukiem', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+                // Add any other headers if needed (e.g., authorization)
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data)
+                // if (data.status === 'delete success') {
+                //   location.reload();
+                // } else {
+                //   alert('Dữ liệu bị xung đột')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          }
+
     function deleteRow(r) {
       var i = r.parentNode.parentNode.rowIndex;
       document.getElementById("myTable").deleteRow(i);

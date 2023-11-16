@@ -164,48 +164,6 @@
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0002</td>
-                                    <td>One Champ Food</td>
-                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
-                                   
-
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
-                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0003</td>
-                                    <td>Đập đá Store</td>
-                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
-                                   
-
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
-                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0004</td>
-                                    <td>Huấn Rose World</td>
-                                    <td>179/78 Thái Thượng Lão, Phường 69, Quận 09, TPHCM</td>
-                                    
-
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
-                                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                        </button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -313,6 +271,9 @@ MODAL
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <script>
+
+        
+
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);

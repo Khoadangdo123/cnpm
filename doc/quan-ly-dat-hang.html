@@ -151,20 +151,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td>0001</td>
-                                    <td>Kiều Thái Anh</td>
-                                    <td>Nguyễn Tiến</td>
-                                    <td><span class="badge bg-success"><a href="chi-tiet-don-dat.html">Nhấn để xem</a>
-                                        </span></td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                                <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                                                data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                              </button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -176,79 +162,10 @@
      <!--
   MODAL
 -->
-  <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-  data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
 
-      <div class="modal-body">
-        <div class="row">
-          <div class="form-group  col-md-12">
-            <span class="thong-tin-thanh-toan">
-              <h5>Chỉnh sửa thông tin đặt hàng</h5>
-            </span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label class="control-label">Mã đơn đặt</label>
-            <input class="form-control" type="text" required value="#CD2187" disabled>
-          </div>
-          <div class="form-group col-md-6">
-            <label class="control-label">Nhân viên đặt</label>
-            <input class="form-control" type="text" required value="Minh Tiến">
-          </div>
-          <div class="form-group  col-md-6">
-            <label class="control-label">Khách hàng đặt</label>
-            <input class="form-control" type="text" required value="Bùi Xuân Huấn">
-          </div>
-          <!-- <div class="form-group col-md-6">
-            <label class="control-label">Địa chỉ email</label>
-            <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
-          </div>
-          <div class="form-group col-md-6">
-            <label class="control-label">Ngày sinh</label>
-            <input class="form-control" type="date" value="15/03/2000">
-          </div> -->
-          <!-- <div class="form-group  col-md-6">
-            <label for="exampleSelect1" class="control-label">Chức vụ</label>
-            <select class="form-control" id="exampleSelect1">
-              <option>Bán hàng</option>
-              <option>Tư vấn</option>
-              <option>Dịch vụ</option>
-              <option>Thu Ngân</option>
-              <option>Quản kho</option>
-              <option>Bảo trì</option>
-              <option>Kiểm hàng</option>
-              <option>Bảo vệ</option>
-              <option>Tạp vụ</option>
-            </select>
-          </div> -->
+    <div id="form_input_updated">
 
-          <!-- <div class="form-group  col-md-6">
-            <label for="exampleSelect1" class="control-label">Chức vụ</label>
-            <select class="form-control" id="exampleSelect1">
-
-              <option>Đang làm</option>
-              <option>Đã nghỉ</option>
-            </select>
-          </div> -->
-        </div>
-        <!-- <BR>
-        <a href="#" style="    float: right;
-      font-weight: 600;
-      color: #ea0000;">Chỉnh sửa nâng cao</a>
-        <BR> -->
-        <BR>
-        <button class="btn btn-save" type="button">Lưu lại</button>
-        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-        <BR>
-      </div>
-      <div class="modal-footer">
-      </div>
     </div>
-  </div>
-</div>
 <!--
 MODAL
 -->
@@ -257,7 +174,6 @@ MODAL
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="src/jquery.table2excel.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
@@ -280,6 +196,122 @@ MODAL
             return formattedDate;
         }
 
+
+        function DataTimeNgaySinh(data) {
+          // Split the string into components
+          var dateComponents = data.split("-");
+
+          // Rearrange the components in the "mm-dd-yyyy" format
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+          return outputDateString;
+        }    
+
+        function update(maDD, maNVD, ngayDat) {
+
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+            <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="form-group  col-md-12">
+                        <span class="thong-tin-thanh-toan">
+                        <h5>Chỉnh sửa thông tin hóa đơn</h5>
+                        </span>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Mã đơn hàng</label>
+                            <input class="form-control" type="text" required value="${maDD}" id="maDonDat_${maDD}" disabled>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Mã Nhân viên đặt</label>
+                            <input class="form-control" type="text" required value="${maNVD}" id="maNhanVienDat_${maDD}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Ngày đặt</label>
+                            <input class="form-control" type="date" required value="${ngayDat}" id="ngayDat_${maDD}">
+                        </div>
+                    </div>
+                    <!-- <BR>
+                    <a href="#" style="    float: right;
+                font-weight: 600;
+                color: #ea0000;">Chỉnh sửa nâng cao</a>
+                    <BR> -->
+                    <BR>
+                    <button 
+                    class="btn btn-save" 
+                    type="button" 
+                    onclick="updateSave(
+                        '${maDD}',
+                        '${maNVD}',
+                        '${DataTime(ngayDat)}'
+                    )"
+                    >Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </div>
+                <div class="modal-footer">
+                </div>
+                </div>
+            </div>
+            </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+            }
+
+        function updateSave(
+            maDDSave, 
+            maNVDSave,
+            ngayDatSave
+        ) {
+
+            const inputMaDonDat = document.getElementById(`maDonDat_${maDDSave}`).value;
+            const inputMaNhanVienDat = document.getElementById(`maNhanVienDat_${maDDSave}`).value;
+            const inputNgayDat = document.getElementById(`ngayDat_${maDDSave}`).value;
+
+            const dataUpdate = {
+                MADD: inputMaDonDat,
+                NVDAT: inputMaNhanVienDat,
+                NGAYDAT: DataTimeNgaySinh(inputNgayDat),
+            };
+
+            console.log(JSON.stringify(dataUpdate))
+
+            fetch('http://localhost:3000/QL/dondat', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataUpdate)
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.status === 'success') {
+                    location.reload();
+                    } else {
+                    alert('Cần bạn nhập đúng')
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+            }
+
+        function xemChiTietDatHang(maDD) {
+            localStorage.setItem('maDonDat', maDD);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             fetch('http://localhost:3000/QL/dondat', {
                 method: 'GET',
@@ -287,7 +319,7 @@ MODAL
                 .then((response) => response.json())
                 .then((data) => {
                     renderTableData(data.data)
-                    
+                    localStorage.setItem('maDDTiepTheo', data.data.length)
                 })
                 .catch((error) => {
                     console.log(error)
@@ -306,29 +338,40 @@ MODAL
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td>${item.MADD}</td>
                             <td>${item.NVDAT}</td>
-                            <td>${DataTime(item.NGDAT)}</td>
+                            <td>${DataTime(item.NGAYDAT)}</td>
                             <td>
-                                <span class="badge bg-success button_${item.MADD}">
+                                <span 
+                                    class="badge bg-success button"
+                                    onclick="xemChiTietDatHang('${item.MADD}')"
+                                    >
                                     <a href="chi-tiet-don-dat.html">Nhấn để xem</a>
                                 </span>
                             </td>
                             <td>
                                 <button 
                                 class="btn btn-primary btn-sm trash" type="button" title="Xóa" 
-                                onclick='deleteItem(${String(item.MADD)})'
-                                ><i
-                                    class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp" data-toggle="modal"
-                                    data-target="#ModalUP"><i class="fas fa-edit"></i>
+                                onclick="deleteItemDD('${item.MADD}')"
+                                >
+                                <i
+                                    class="fas fa-trash-alt"></i>
+                                </button>
+                                <button 
+                                    class="btn btn-primary btn-sm edit" 
+                                    title="Sửa" id="show-emp" 
+                                    data-toggle="modal"
+                                    data-target="#ModalUP"
+                                    onclick="update(
+                                        '${item.MADD}',
+                                        '${item.NVDAT}',
+                                        '${DataTime(item.NGAYDAT)}'
+                                    )"    
+                                ><i class="fas fa-edit"></i>
                                 </button>
                             </td>
                         </tr>
                     `;
 
                     tableBody.appendChild(row);
-
-                    
-
                     
                 });
 
@@ -337,10 +380,35 @@ MODAL
         });
             
 
-        function deleteItem(id) {
-            console.log("Delete", "000"+id);
-            fetch('')
-        }
+        // function xemChiTietHoaDon(maHD) {
+        //     localStorage.setItem('maHoaDon', maHD);
+        //   }
+        
+          function deleteItemDD(id) {
+            const dataDelete = {
+              MADD: id
+            }
+
+            fetch('http://localhost:3000/QL/dondat', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data)
+                // if (data.status === 'delete success') {
+                //   location.reload();
+                // } else {
+                //   alert('Dữ liệu bị xung đột')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          }
 
         // function deleteRow(r) {
         //     var i = r.parentNode.parentNode.rowIndex;
