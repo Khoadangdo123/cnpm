@@ -353,15 +353,7 @@ MODAL
         //   });
         // });
 
-        function DataTimeNgaySinh(data) {
-            // Split the string into components
-            var dateComponents = data.split("-");
-
-            // Rearrange the components in the "mm-dd-yyyy" format
-            var outputDateString = dateComponents[0] + "-" + dateComponents[2] + "-" + dateComponents[1];
-
-            return outputDateString;
-        }
+        
 
         document.addEventListener('DOMContentLoaded', function () {
             fetch('http://localhost:3000/QL/nhacungcap', {
