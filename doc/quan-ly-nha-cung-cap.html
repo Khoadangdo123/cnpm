@@ -380,7 +380,7 @@ MODAL
 
                 data.forEach(function (item) {
 
-                    const dataDelete = item.MANV + '';
+                    const dataDelete = item.MANCC + '';
                     console.log(dataDelete)
                     const row = document.createElement('tr');
                     row.innerHTML = `
@@ -392,7 +392,7 @@ MODAL
                         <td class="table-td-center">
                           <button 
                           class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                          onclick="deleteItemTK('${item.MANV}')"><i class="fas fa-trash-alt"></i>
+                          onclick="deleteItemTK('${item.MANCC}')"><i class="fas fa-trash-alt"></i>
                           </button>
                           <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                             data-toggle="modal" data-target="#ModalUP"
@@ -515,7 +515,7 @@ MODAL
 
         function deleteItemTK(id) {
             const dataDelete = {
-                MANV: id
+                MANCC: id
             }
 
             fetch('http://localhost:3000/QL/nhacungcap', {

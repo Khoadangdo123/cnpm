@@ -324,6 +324,207 @@ MODAL
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <script>
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${month}/${day}/${year}`;
+            return formattedDate;
+        }
+
+       
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/QL/nhaphang', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    renderTableData(data.data)
+                    
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+                
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+    
+                    const dataDelete = item.MANCC + '';
+                    console.log(dataDelete)
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                      <tr>
+                        <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                        <td>${item.MAHD}</td>
+                        <td>${item.NVXUAT}</td>
+                        <td>${DataTime(item.NGAYNHAP)}</td>
+                       
+                        <td><span class="badge bg-danger">${item.TRANGTHAI}</span></td>
+                        <td class="table-td-center">
+                          <button 
+                          class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                          onclick="deleteItemTK('${item.MANCC}')"><i class="fas fa-trash-alt"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                            data-toggle="modal" data-target="#ModalUP"
+                            onclick="update('${item.MAHD}',
+                              '${item.NVXUAT}',
+                              '${DataTime(item.NGAYSINH)}',
+                             
+                              )"
+                            ><i class="fas fa-edit"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+
+                
+            }
+          });
+
+          function update(id, nvXuat, ngayNhap ) {
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+            <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+              data-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="form-group  col-md-12">
+                          <span class="thong-tin-thanh-toan">
+                            <h5>Chỉnh sửa thông tin đơn nhập hàng</h5>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Mã hóa đơn nhập hàng</label>
+                          <input class="form-control" type="text" required id="maNV_${id}" value="${id}" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Nhân viên xuất</label>
+                          <input class="form-control" type="text" id="tenNV_${id}" required value="${nvXuat}">
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                          <label class="control-label">Ngày sinh</label>
+                          <input class="form-control" type="date" value="${DataTime(ngayNhap)}" id="ngaySinh_${id}">
+                        </div>
+                        
+
+                        
+                      </div>
+                      <BR>
+                      <a href="#" style="float: right;
+                    font-weight: 600;
+                    color: #ea0000;">Chỉnh sửa nâng cao</a>
+                      <BR>
+                      <BR>
+                      <button class="btn btn-save" type="button" onclick="updateSave(
+                        '${id}',
+                        '${nvXuat}',
+                        '${ngayNhap}',
+                        
+                      )">Lưu lại</button>
+                      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                      <BR>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+          }
+
+          function updateSave(
+            idSave, 
+            nvXuatSave, 
+            ngayNhapSave,
+           ) {
+
+            const inputNvXuat = document.getElementById(`nvXuat_${idSave}`).value;
+            const inputNgayNhap = document.getElementById(`ngayNhap_${idSave}`).value;
+
+            
+
+            const dataUpdate = {
+              MANCC: idSave,
+              NVXUAT: inputNvXuat,
+              NGAYSINH: DataTimeNgaySinh(inputNgaySinhNVID),
+             
+            }
+
+            console.log(JSON.stringify(dataUpdate))
+            
+            fetch('http://localhost:3000/QL/nhaphang', {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataUpdate)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                if (data.status === 'success') {
+                  location.reload();
+                } else {
+                  alert('Cần bạn nhập đúng')
+                }
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+
+          }
+
+      
+          function deleteItemTK(id) {
+            const dataDelete = {
+              MANCC: id
+            }
+
+            fetch('http://localhost:3000/QL/nhaphang', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+                // Add any other headers if needed (e.g., authorization)
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                // console.log(data)
+                if (data.status === 'delete success') {
+                  location.reload();
+                } else {
+                  alert('Dữ liệu bị xung đột')
+                }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+            }
+    </script>
+    
+    <script>
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);
