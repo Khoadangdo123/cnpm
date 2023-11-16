@@ -109,6 +109,15 @@
                 <div class="tile">
                     <div class="tile-body">
                         <div class="row element-button">
+                            <div class="col-sm-2">
+                                <!-- <a class="btn btn-add btn-sm" href="form-add-chi-tiet-don-hang.html" title="Thêm"><i
+                                        class="fas fa-plus"></i>
+                                    Thêm mới sản phẩm</a> -->
+                                <button class="btn btn-add btn-sm" type="button" title="Sửa" id="show-emp"
+                                    data-toggle="modal" data-target="#ModalADD"><i class="fas fa-plus"></i> Thêm mới sản
+                                    phẩm
+                                </button>
+                            </div>
                             <!-- <div class="col-sm-2">
 
                                 <a class="btn btn-add btn-sm" href="form-add-bi-cam.html" title="Thêm"><i
@@ -163,10 +172,13 @@
                                     <td>A001</td>
                                     <td>2</td>
                                     <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i></button>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -176,10 +188,13 @@
                                     <td>A001</td>
                                     <td>2</td>
                                     <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i></button>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,10 +204,13 @@
                                     <td>A001</td>
                                     <td>2</td>
                                     <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i></button>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -202,10 +220,13 @@
                                     <td>A001</td>
                                     <td>2</td>
                                     <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                                class="fas fa-edit"></i></button>
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -218,6 +239,103 @@
                 </div>
             </div>
         </div>
+
+        <!--
+  MODAL add sp
+-->
+        <div class="modal fade" id="ModalADD" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group  col-md-12">
+                                <span class="thong-tin-thanh-toan">
+                                    <h5>Thêm sản phẩm</h5>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Mã sản phẩm </label>
+                                <input class="form-control" type="text" value="71309005">
+                            </div>
+                            <!-- <div class="form-group col-md-6">
+            <label class="control-label">Tên sản phẩm</label>
+            <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
+          </div>
+          <div class="form-group col-md-6">
+            <label class="control-label">Ảnh</label>
+            <input class="form-control" type="file" required value="Bàn ăn gỗ Theresa">
+          </div> -->
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Số lượng</label>
+                                <input class="form-control" type="number" required value="20">
+                            </div>
+
+                        </div>
+                        <!-- <BR>
+        <a href="#" style="    float: right;
+  font-weight: 600;
+  color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
+        <BR> -->
+                        <BR>
+                        <button class="btn btn-save" type="button">Lưu lại</button>
+                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                        <BR>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+MODAL add sp
+-->
+
+        <!--
+  MODAL sửa sp
+-->
+        <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group  col-md-12">
+                                <span class="thong-tin-thanh-toan">
+                                    <h5>Chỉnh sửa sản phẩm</h5>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Mã sản phẩm </label>
+                                <input class="form-control" type="text" value="71309005">
+                            </div>
+             
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Số lượng</label>
+                                <input class="form-control" type="number" required value="20">
+                            </div>
+
+                        </div>
+   
+                        <BR>
+                        <button class="btn btn-save" type="button">Lưu lại</button>
+                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                        <BR>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+MODAL sửa sp
+-->
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -355,7 +473,7 @@
         if (selectedOption !== null) {
             // Ẩn hoặc hiển thị các thẻ li theo định danh
             if (selectedOption === "nv") {
-                
+
                 document.getElementById("item3").style.display = "block";
                 document.getElementById("item4").style.display = "none";
                 document.getElementById("item5").style.display = "block";
@@ -380,7 +498,7 @@
         if (selectedOption2 !== null) {
             // Ẩn hoặc hiển thị các thẻ li theo định danh
             if (selectedOption === "ql") {
-               
+
                 document.getElementById("item3").style.display = "block";
                 document.getElementById("item4").style.display = "block";
                 document.getElementById("item5").style.display = "block";
