@@ -100,51 +100,32 @@
             <form class="row">
               <div class="form-group  col-md-4">
                 <label class="control-label">ID đơn hàng ( Nếu không nhập sẽ tự động phát sinh )</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" id="maHD">
               </div>
               <div class="form-group  col-md-4">
-                <label class="control-label">Tên khách hàng</label>
-                <input class="form-control" type="text">
+                <label class="control-label">Mã khách hàng</label>
+                <input class="form-control" type="text" id="maKH">
               </div>
-              <!-- <div class="form-group  col-md-4">
-                <label class="control-label">Số điện thoại khách hàng</label>
-                <input class="form-control" type="number">
-              </div> -->
-              <!-- <div class="form-group  col-md-4">
-                <label class="control-label">Địa chỉ khách hàng</label>
-                <input class="form-control" type="text">
-              </div> -->
               <div class="form-group  col-md-4">
-                <label class="control-label">Tên người bán</label>
-                <input class="form-control" type="text">
+                <label class="control-label">Mã nhân viên xuất</label>
+                <input class="form-control" type="text" id="maNVXuat">
               </div>
               <!-- <div class="form-group  col-md-4">
                 <label class="control-label">Số hiệu người bán</label>
                 <input class="form-control" type="text">
               </div> -->
               <div class="form-group  col-md-4">
-                <label class="control-label">Ngày làm đơn hàng</label>
-                <input class="form-control" type="date">
+                <label class="control-label">Ngày xuất</label>
+                <input class="form-control" type="date" id="ngayXuat">
               </div>
-              <div class="form-group  col-md-4">
-                <label class="control-label">Tên sản phẩm cần bán</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group  col-md-4">
-                <label class="control-label">Mã sản phẩm</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group  col-md-4">
-                <label class="control-label">Số lượng</label>
-                <input class="form-control" type="number">
-              </div>
+              
               <div class="form-group col-md-4">
                 <label for="exampleSelect1" class="control-label">Tình trạng</label>
                 <select class="form-control" id="exampleSelect1">
                   <option>-- Chọn tình trạng --</option>
-                  <option>Đã xử lý</option>
-                  <option>Đang chờ</option>
-                  <option>Đã hủy</option>
+                  <option value="Đã xử lý">Đã xử lý</option>
+                  <option value="Đang chờ">Đang chờ</option>
+                  <option value="Đã hủy">Đã hủy</option>
                 </select>
               </div>
               <!-- <div class="form-group  col-md-4">
@@ -153,7 +134,7 @@
               </div> -->
 
           </div>
-          <button class="btn btn-save" type="button">Lưu lại</button>
+          <button class="btn btn-save" type="button" onclick="insertThongTinNhanVien()">Lưu lại</button>
           <a class="btn btn-cancel" href="/doc/quan-ly-hoa-don.html">Hủy bỏ</a>
         </div>
   </main>
@@ -165,6 +146,77 @@
   <!-- The javascript plugin to display page loading on top-->
   <script src="js/plugins/pace.min.js"></script>
   <script>
+
+    function DataTimeNgaySinh(data) {
+      // Split the string into components
+      var dateComponents = data.split("-");
+
+      // Rearrange the components in the "mm-dd-yyyy" format
+      var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+      return outputDateString;
+    }
+
+    function generateRandomCode(length) {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Các ký tự có thể xuất hiện trong chuỗi
+      let result = '';
+
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+      }
+
+      return result;
+    }
+
+
+    function insertThongTinNhanVien() {
+      var valueMaPK = document.getElementById('maHD').value;
+      var valueMaNV = document.getElementById('maKH').value;
+      var valueMaNVXuat = document.getElementById('maNVXuat').value;
+      var valueNgayXuat = document.getElementById('ngayXuat').value;
+      var valueTrangThai = document.getElementById('exampleSelect1').value;
+
+      if (valueMaPK === '') {
+        var dataInsert = {
+          MAHD: generateRandomCode(6),
+          MAKH: valueMaNV,
+          NVXUAT: valueMaNVXuat,
+          NGAYXUAT: DataTimeNgaySinh(valueNgayXuat),
+          TRANGTHAI: valueTrangThai
+        };
+      } else {
+        var dataInsert = {
+          MAHD: valueMaPK,
+          MAKH: valueMaNV,
+          NVXUAT: valueMaNVXuat,
+          NGAYXUAT: DataTimeNgaySinh(valueNgayXuat),
+          TRANGTHAI: valueTrangThai
+        };
+      }
+
+      fetch('http://localhost:3000/QL/hoadon', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataInsert)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // if (data.status === 'success') {
+          //   location.href = './table-data-product.html'
+          // } else {
+          //   alert('Bạn nhập sai yêu cầu')
+          // }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
+
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
 

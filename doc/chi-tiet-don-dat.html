@@ -145,73 +145,28 @@
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
                                     <th>Mã đơn đặt</th>
-                                    <th>STT</th>
                                     <th>Mã sản phẩm</th>
                                     <th>Số lượng</th>
-
                                     <th>Đơn giá</th>
+                                    <th>Mã nhân viên xuất</th>
+                                    <th>Ngày xuất</th>
+                                    <th>Tổng tiền</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <td rowspan="4">0001</td>
-                                    <td>1</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>2</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>3</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
-                                    <td>4</td>
-                                    <td>A001</td>
-                                    <td>2</td>
-                                    <td>20.000d</td>
-                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                                class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
-                                                class="fa fa-edit"></i></button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                         <div class="col-sm-11 text-right">
                             <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button"
-                                title="Quay lại" href="quan-ly-dat-hang.html"> Quay lại</a>
+                                title="Quay lại" href="quan-ly-dat-hang.html" onclick="goBackDD()"> Quay lại</a>
                         </div>
+                    </div>
+                    <div id="form_input_updated">
+
+                    </div>
+                    <div id="tongTien">
+
                     </div>
                 </div>
             </div>
@@ -222,7 +177,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="src/jquery.table2excel.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
@@ -233,6 +187,254 @@
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <script>
+
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${month}-${day}-${year}`;
+            return formattedDate;
+        }
+
+        function DataTimeNgaySinh(data) {
+          // Split the string into components
+          var dateComponents = data.split("-");
+
+          // Rearrange the components in the "mm-dd-yyyy" format
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+          return outputDateString;
+        }
+
+        const getItemMaDD = localStorage.getItem('maDonDat');
+        const dataGetItem = {
+            MADD: getItemMaDD
+        };
+
+        function goBackDD() {
+            localStorage.removeItem('maDonDat');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/QL/chitietdondatTQ', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataGetItem)
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.data)
+                    renderTableData(data.data);
+                    totalHoaDon(data.data);
+                    
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+            function totalHoaDon(data) {
+                const totalValue = data.reduce((sum, obj) => sum + (Number(obj.SOLUONG) * Number(obj.DONGIA)), 0);
+
+                var tongTienValue = document.getElementById('tongTien');
+                var titleTong = document.createElement('h1');
+
+                titleTong.innerHTML = `
+                    <h1>Tổng tiền: ${totalValue} VNĐ</h1>
+                `;
+
+                tongTienValue.appendChild(titleTong);
+            }
+                
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                      <tr>
+                        <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                        <td>${item.MADD}</td>
+                        <td>${item.MASP}</td>
+                        <td>${item.SOLUONG}</td>
+                        <td>${item.DONGIA}</td>
+                        <td>${item.NVDAT}</td>
+                        <td>${DataTime(item.NGAYDAT)}</td>
+                        <td>${Number(item.SOLUONG) * Number(item.DONGIA)}</td>
+                            <button 
+                              class="btn btn-primary btn-sm trash" 
+                              type="button" 
+                              title="Xóa"
+                              onclick="deleteItemCTDD('${item.MADD}', '${item.MASP}')"
+                            >
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
+                              <button 
+                                class="btn btn-primary btn-sm edit" 
+                                title="Sửa" id="show-emp" 
+                                data-toggle="modal"
+                                data-target="#ModalUP"
+                                onclick="update(
+                                  '${item.MADD}',
+                                  '${item.MASP}',
+                                  '${item.SOLUONG}',
+                                  '${item.DONGIA}',
+                                )"
+                              ><i class="fas fa-edit"></i>
+                            </button>
+                      </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+              });
+            }
+          });
+
+
+        function update(MADD, MASP, SOLUONG, DONGIA) {
+
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+            <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="form-group  col-md-12">
+                        <span class="thong-tin-thanh-toan">
+                        <h5>Chỉnh sửa thông tin hóa đơn</h5>
+                        </span>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Mã đơn đặt</label>
+                            <input class="form-control" type="text" required value="${MADD}" id="maHoaDon_${MADD}" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Mã sản phẩm</label>
+                            <input class="form-control" type="text" required value="${MASP}" id="maSanPham_${MADD}" disabled>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Đơn giá</label>
+                            <input class="form-control" type="text" required value="${DONGIA}" id="donGia_${MADD}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Số lượng</label>
+                            <input class="form-control" type="text" required value="${SOLUONG}" id="soLuong_${MADD}">
+                        </div>
+
+                    </div>
+                    <!-- <BR>
+                    <a href="#" style="    float: right;
+                font-weight: 600;
+                color: #ea0000;">Chỉnh sửa nâng cao</a>
+                    <BR> -->
+                    <BR>
+                    <button 
+                    class="btn btn-save" 
+                    type="button" 
+                    onclick="updateSave(
+                        '${MADD}',
+                        '${MASP}',
+                        '${SOLUONG}',
+                        '${DONGIA}',
+                    )"
+                    >Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </div>
+                <div class="modal-footer">
+                </div>
+                </div>
+            </div>
+            </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+        }
+
+        function updateSave(
+            maDDSave,
+            maSPSave,
+            donGiaSave,
+            soLuongSave
+          ) {
+
+            const inputMaDonDat = document.getElementById(`maHoaDon_${maDDSave}`).value;
+            const inputMaSanPham = document.getElementById(`maSanPham_${maDDSave}`).value;
+            const inputDonGia = document.getElementById(`donGia_${maDDSave}`).value;
+            const inputSoLuong = document.getElementById(`soLuong_${maDDSave}`).value;
+
+            const dataUpdate = {
+              MADD: inputMaDonDat,
+              MASP: inputMaSanPham,
+              DONGIA: inputDonGia,
+              SOLUONG: inputSoLuong,
+            };
+
+            console.log(JSON.stringify(dataUpdate))
+            
+            fetch('http://localhost:3000/QL/chitietdathang', {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataUpdate)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                // if (data.status === 'success') {
+                //   location.reload();
+                // } else {
+                //   alert('Cần bạn nhập đúng')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+
+          }
+
+
+        function deleteItemCTDD(id, idSP) {
+            const dataDelete = {
+              MADD: id,
+              MASP: idSP
+            }
+
+            fetch('http://localhost:3000/QL/chitietdathang', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+                // Add any other headers if needed (e.g., authorization)
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data)
+                // if (data.status === 'delete success') {
+                //   location.reload();
+                // } else {
+                //   alert('Dữ liệu bị xung đột')
+                // }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          }
+
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);

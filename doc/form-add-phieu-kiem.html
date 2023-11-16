@@ -109,15 +109,27 @@
             <form class="row">
               <div class="form-group col-md-4">
                 <label class="control-label">Mã phiếu kiểm</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" id="maPK">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Nhân viên kiểm</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" id="maNV">
               </div>
               <div class="form-group col-md-4">
-                <label class="control-label">Ngày lập phiếu</label>
-                <input class="form-control" type="date">
+                <label class="control-label">Mã sản phẩm</label>
+                <input class="form-control" type="text" id="maSP">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Đơn giá</label>
+                <input class="form-control" type="text" id="donGia">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Số lượng giao</label>
+                <input class="form-control" type="text" id="soLuongGiao">
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">Ngày lập</label>
+                <input class="form-control" type="date" id="ngayLap">
               </div>
               <!-- <div class="form-group col-md-4">
                         <label for="exampleSelect1" class="control-label">Chức vụ</label>
@@ -142,17 +154,16 @@
                 <label for="exampleSelect1" class="control-label">Tình trạng</label>
                 <select class="form-control" id="exampleSelect1">
                   <option>-- Chọn tình trạng --</option>
-                  <option>Đã kiểm hàng</option>
-                  <option>Đang kiểm hàng</option>
-                  <option>Chưa kiểm hàng</option>
-
+                  <option value="Đã kiểm hàng">Đã kiểm hàng</option>
+                  <option value="Đang kiểm hàng">Đang kiểm hàng</option>
+                  <option value="Chưa kiểm hàng">Chưa kiểm hàng</option>
                 </select>
               </div>
 
               <div class="tile-footer">
               </div>
           </div>
-          <button class="btn btn-save" type="button">Lưu lại</button>
+          <button class="btn btn-save" type="button" onclick="insertThongTinNhanVien()">Lưu lại</button>
           <a class="btn btn-cancel" href="/doc/table-data-banned.html">Hủy bỏ</a>
         </div>
   </main>
@@ -200,6 +211,58 @@ MODAL
   <script src="js/plugins/pace.min.js"></script>
 
   <script>
+
+    function DataTimeNgaySinh(data) {
+      // Split the string into components
+      var dateComponents = data.split("-");
+
+      // Rearrange the components in the "mm-dd-yyyy" format
+      var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+      return outputDateString;
+    }
+
+    function insertThongTinNhanVien() {
+      var valueMaPK = document.getElementById('maPK').value;
+      var valueMaNV = document.getElementById('maNV').value;
+      var valueMaSP = document.getElementById('maSP').value;
+      var valuedonGia = document.getElementById('donGia').value;
+      var valueSoLuongGiao = document.getElementById('soLuongGiao').value;
+      var valueNgayLap = document.getElementById('ngayLap').value;
+      var valueTinhTrang = document.getElementById('exampleSelect1');
+      var selectValue = valueTinhTrang.value;
+
+      const dataInsert = {
+        MAPK: valueMaPK,
+        NVLAP: valueMaNV,
+        MASP: valueMaSP,
+        DONGIA: valuedonGia,
+        SLGIAO: valueSoLuongGiao,
+        NGLAP: DataTimeNgaySinh(valueNgayLap),
+        TRANGTHAI: selectValue
+      };
+
+      fetch('http://localhost:3000/QL/phieukiem', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataInsert)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // if (data.status === 'success') {
+          //   location.href = './table-data-product.html'
+          // } else {
+          //   alert('Bạn nhập sai yêu cầu')
+          // }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
 
