@@ -30,7 +30,7 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="/index.html" onclick="dangXuat()"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -38,39 +38,50 @@
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/admin.jpg" width="50px"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Võ Trường</b></p>
+        <p class="app-sidebar__user-name" id="tenDangNhap"></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>
     <hr>
-    <ul class="app-menu">
-      <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
-          <span class="app-menu__label">POS Bán Hàng</span></a></li>
-      <li><a class="app-menu__item active" href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
-            class="app-menu__label">Bảng điều khiển</span></a></li>
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i> <span
-            class="app-menu__label">Quản lý nhân viên</span></a></li>
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span
-            class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-product.html"><i
+    <ul class="app-menu" id="list">
+      <li id="item1"><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i
+            class='app-menu__icon bx bx-cart-alt'></i>
+          <span class="app-menu__label">Thanh toán</span></a></li>
+      <li id="item2"><a class="app-menu__item active" href="index.html"><i
+            class='app-menu__icon bx bx-tachometer'></i><span class="app-menu__label">Tổng quát</span></a></li>
+      <li id="item3"><a class="app-menu__item " href="quan-ly-dat-hang.html"><i
+            class='app-menu__icon bx bx-cable-car'></i><span class="app-menu__label">Quản lý đặt hàng</span></a></li>
+      <li id="item4"><a class="app-menu__item " href="table-data-table.html" id="qltk" disabled><i
+            class='app-menu__icon bx bx-id-card'></i> <span class="app-menu__label">Quản lý tài khoản</span></a></li>
+      <li id="item5"><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
-      <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-            class="app-menu__label">Quản lý đơn hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
-            class="app-menu__label">Quản lý nội bộ
+      <li id="item6"><a class="app-menu__item" href="quan-ly-hoa-don.html"><i
+            class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý hóa đơn</span></a></li>
+      <li id="item7"><a class="app-menu__item" href="table-data-banned.html" id="qlpk" disabled><i
+            class='app-menu__icon bx bx-run'></i><span class="app-menu__label">Quản lý phiểu kiểm
           </span></a></li>
-      <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
-            class="app-menu__label">Bảng kê lương</span></a></li>
-      <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
+      <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
+            class="app-menu__label">Quản lý phiếu hủy
+          </span></a></li> -->
+      <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i
+            class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý tồn kho</span></a></li>
+      <li id="item8,1"><a class="app-menu__item" href="quan-ly-nhap-hang.html"><i
+            class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
+      </li>
+      <li id="item8,2"><a class="app-menu__item" href="quan-ly-nha-cung-cap.html"><i
+            class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý nhà cung cấp</span></a>
+      </li>
+      <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
-      <li><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
-            class="app-menu__label">Lịch công tác </span></a></li>
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
+      <!-- <li id="item10"><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+            class="app-menu__label">Lịch công tác </span></a></li> -->
+      <li id="item10"><a class="app-menu__item" href="cai-dat-ht.html" id="cdht"><i
+            class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
             đặt hệ thống</span></a></li>
     </ul>
   </aside>
@@ -89,50 +100,50 @@
       <!--Left-->
       <div class="col-md-12 col-lg-6">
         <div class="row">
-       <!-- col-6 -->
-       <div class="col-md-6">
-        <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
-          <div class="info">
-            <h4>Tổng khách hàng</h4>
-            <p><b>56 khách hàng</b></p>
-            <p class="info-tong">Tổng số khách hàng được quản lý.</p>
+          <!-- col-6 -->
+          <div class="col-md-6">
+            <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
+              <div class="info">
+                <h4>Tổng khách hàng</h4>
+                <p><b>56 khách hàng</b></p>
+                <p class="info-tong">Tổng số khách hàng được quản lý.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-       <!-- col-6 -->
+          <!-- col-6 -->
           <div class="col-md-6">
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
               <div class="info">
                 <h4>Tổng sản phẩm</h4>
-                <p><b>1850 sản phẩm</b></p>
+                <p><b>20 sản phẩm</b></p>
                 <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
               </div>
             </div>
           </div>
-           <!-- col-6 -->
+          <!-- col-6 -->
           <div class="col-md-6">
             <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
               <div class="info">
                 <h4>Tổng đơn hàng</h4>
-                <p><b>247 đơn hàng</b></p>
+                <p><b>27 đơn hàng</b></p>
                 <p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
               </div>
             </div>
           </div>
-           <!-- col-6 -->
+          <!-- col-6 -->
           <div class="col-md-6">
             <div class="widget-small danger coloured-icon"><i class='icon bx bxs-error-alt fa-3x'></i>
               <div class="info">
                 <h4>Sắp hết hàng</h4>
-                <p><b>4 sản phẩm</b></p>
+                <p><b>1 sản phẩm</b></p>
                 <p class="info-tong">Số sản phẩm cảnh báo hết cần nhập thêm.</p>
               </div>
             </div>
           </div>
-           <!-- col-12 -->
-           <div class="col-md-12">
+          <!-- col-12 -->
+          <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Tình trạng đơn hàng</h3>
+              <h3 class="tile-title">Tình trạng đơn hàng</h3>
               <div>
                 <table class="table table-bordered">
                   <thead>
@@ -156,7 +167,7 @@
                       <td>ER3835</td>
                       <td>Nguyễn Thị Mỹ Yến</td>
                       <td>
-                        16.770.000 đ	
+                        16.770.000 đ
                       </td>
                       <td><span class="badge bg-warning">Đang vận chuyển</span></td>
                     </tr>
@@ -164,71 +175,71 @@
                       <td>MD0837</td>
                       <td>Triệu Thanh Phú</td>
                       <td>
-                        9.400.000 đ	
+                        9.400.000 đ
                       </td>
                       <td><span class="badge bg-success">Đã hoàn thành</span></td>
                     </tr>
                     <tr>
                       <td>MT9835</td>
-                      <td>Đặng Hoàng Phúc	</td>
+                      <td>Đặng Hoàng Phúc </td>
                       <td>
-                        40.650.000 đ	
+                        40.650.000 đ
                       </td>
-                      <td><span class="badge bg-danger">Đã hủy	</span></td>
+                      <td><span class="badge bg-danger">Đã hủy </span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <!-- / div trống-->
             </div>
-           </div>
-            <!-- / col-12 -->
-             <!-- col-12 -->
-            <div class="col-md-12">
-                <div class="tile">
-                  <h3 class="tile-title">Khách hàng mới</h3>
-                <div>
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Tên khách hàng</th>
-                        <th>Ngày sinh</th>
-                        <th>Số điện thoại</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>#183</td>
-                        <td>Hột vịt muối</td>
-                        <td>21/7/1992</td>
-                        <td><span class="tag tag-success">0921387221</span></td>
-                      </tr>
-                      <tr>
-                        <td>#219</td>
-                        <td>Bánh tráng trộn</td>
-                        <td>30/4/1975</td>
-                        <td><span class="tag tag-warning">0912376352</span></td>
-                      </tr>
-                      <tr>
-                        <td>#627</td>
-                        <td>Cút rang bơ</td>
-                        <td>12/3/1999</td>
-                        <td><span class="tag tag-primary">01287326654</span></td>
-                      </tr>
-                      <tr>
-                        <td>#175</td>
-                        <td>Hủ tiếu nam vang</td>
-                        <td>4/12/20000</td>
-                        <td><span class="tag tag-danger">0912376763</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
+          </div>
+          <!-- / col-12 -->
+          <!-- col-12 -->
+          <div class="col-md-12">
+            <div class="tile">
+              <h3 class="tile-title">Khách hàng mới</h3>
+              <div>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tên khách hàng</th>
+                      <th>Ngày sinh</th>
+                      <th>Số điện thoại</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#183</td>
+                      <td>Hột vịt muối</td>
+                      <td>21/7/1992</td>
+                      <td><span class="tag tag-success">0921387221</span></td>
+                    </tr>
+                    <tr>
+                      <td>#219</td>
+                      <td>Bánh tráng trộn</td>
+                      <td>30/4/1975</td>
+                      <td><span class="tag tag-warning">0912376352</span></td>
+                    </tr>
+                    <tr>
+                      <td>#627</td>
+                      <td>Cút rang bơ</td>
+                      <td>12/3/1999</td>
+                      <td><span class="tag tag-primary">01287326654</span></td>
+                    </tr>
+                    <tr>
+                      <td>#175</td>
+                      <td>Hủ tiếu nam vang</td>
+                      <td>4/12/20000</td>
+                      <td><span class="tag tag-danger">0912376763</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+
             </div>
-             <!-- / col-12 -->
+          </div>
+          <!-- / col-12 -->
         </div>
       </div>
       <!--END left-->
@@ -262,7 +273,7 @@
       <p><b>Copyright
           <script type="text/javascript">
             document.write(new Date().getFullYear());
-          </script> Phần mềm quản lý bán hàng | Dev By Trường
+          </script>
         </b></p>
     </div>
   </main>
@@ -352,6 +363,122 @@
       }
     }
   </script>
+
+  <!-- <script>
+    const link = document.getElementById("qltk");
+
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Nếu có giá trị, kiểm tra nó và enable hoặc disable link
+      if (selectedOption === "admin") {
+        link.removeAttribute("disabled");
+        link.href = "table-data-table.html"; // Đặt URL muốn chuyển đến
+      } else {
+        link.setAttribute("disabled", "disabled");
+        link.removeAttribute("href");
+      }
+    }
+  </script> -->
+
+  <!-- <script>
+    // Danh sách các thẻ <a> và URL tương ứng
+    const links = {
+      link1: { element: document.getElementById("qltk"), url: "table-data-table.html" },
+      link2: { element: document.getElementById("cdht"), url: "cai-dat-ht.html" },
+      link3: { element: document.getElementById("qlpk"), url: "table-data-banned.html" }
+    };
+
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Duyệt qua danh sách thẻ <a> và thiết lập href và disabled cho từng thẻ
+      for (const key in links) {
+        if (selectedOption === "admin") {
+          links[key].element.removeAttribute("disabled");
+          links[key].element.href = links[key].url; // Đặt URL riêng lẻ cho mỗi thẻ
+        } else {
+          links[key].element.setAttribute("disabled", "disabled");
+          links[key].element.removeAttribute("href");
+        }
+
+        if (selectedOption === "admin") {
+          links[key].style.display = "block"; // Hiển thị thẻ
+        } else {
+          links[key].style.display = "none"; // Ẩn thẻ
+        }
+      }
+    }
+  </script> -->
+
+  <script>
+
+    const tenDangNhapText = localStorage.getItem('TENNV');
+    console.log(tenDangNhapText)
+    const tenDangNhap = document.getElementById('tenDangNhap');
+    const tagTenDangNhap = document.createElement('b');
+    tagTenDangNhap.innerHTML = `
+      <b>
+        ${tenDangNhapText}
+      </b>
+    `;
+    tenDangNhap.appendChild(tagTenDangNhap);
+
+    function dangXuat() {
+      localStorage.removeItem('TENNV')
+    }
+
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption = localStorage.getItem("selectedOption");
+
+    if (selectedOption !== null) {
+      // Ẩn hoặc hiển thị các thẻ li theo định danh
+      if (selectedOption === "Nhân viên") {
+        document.getElementById("item1").style.display = "block";
+        document.getElementById("item2").style.display = "block";
+        document.getElementById("item3").style.display = "block";
+        document.getElementById("item4").style.display = "none";
+        document.getElementById("item5").style.display = "block";
+        document.getElementById("item6").style.display = "block";
+        document.getElementById("item7").style.display = "none";
+        document.getElementById("item8").style.display = "block";
+        document.getElementById("item8,1").style.display = "block";
+        document.getElementById("item8,2").style.display = "none";
+        document.getElementById("item9").style.display = "none";
+        document.getElementById("item10").style.display = "none";
+        document.getElementById("item11").style.display = "none";
+      } else {
+        // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+      }
+    }
+  </script>
+
+  <script>
+    // Kiểm tra giá trị đã được lưu từ a.html
+    const selectedOption2 = localStorage.getItem("selectedOption");
+
+    if (selectedOption2 !== null) {
+      // Ẩn hoặc hiển thị các thẻ li theo định danh
+      if (selectedOption === "Quản lý") {
+        document.getElementById("item1").style.display = "block";
+        document.getElementById("item2").style.display = "block";
+        document.getElementById("item3").style.display = "block";
+        document.getElementById("item4").style.display = "block";
+        document.getElementById("item5").style.display = "block";
+        document.getElementById("item6").style.display = "block";
+        document.getElementById("item7").style.display = "block";
+        document.getElementById("item8").style.display = "block";
+        document.getElementById("item9").style.display = "block";
+        document.getElementById("item10").style.display = "none";
+        document.getElementById("item11").style.display = "none";
+      } else {
+        // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+      }
+    }
+  </script>
+
 </body>
 
 </html>
