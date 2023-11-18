@@ -472,7 +472,7 @@ MODAL
       var dateComponents = data.split("-");
 
       // Rearrange the components in the "mm-dd-yyyy" format
-      var outputDateString = dateComponents[0] + "-" + dateComponents[2] + "-" + dateComponents[1];
+      var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
 
       return outputDateString;
     }
@@ -508,12 +508,21 @@ MODAL
           console.log(data);
           if (data.status === 'success') {
             location.href = './table-data-product.html'
-          } else {
-            alert('Bạn nhập sai yêu cầu')
+          } else if (data.status === 'error') {
+            alert(`${data.message}`)
+          } else if (data.error === 1) {
+            alert(`${data.message}`)
+          } else if (data.error === 2) {
+            alert(`${data.message}`);
+          } else if (data.error === 3) {
+            alert(`${data.message }`)
+          }
+          else {
+            alert(`${data.message}`)
           }
         })
         .catch((error) => {
-          console.log(error)
+          alert(`${error.message}`);
         })
     }
 
