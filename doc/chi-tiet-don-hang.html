@@ -110,13 +110,13 @@
                     <div class="tile-body">
                         <div class="row element-button">
                             <div class="col-sm-2">
-                                <!-- <a class="btn btn-add btn-sm" href="form-add-chi-tiet-don-hang.html" title="Thêm"><i
+                                <a class="btn btn-add btn-sm" href="form-add-chi-tiet-don-hang.html" title="Thêm"><i
                                         class="fas fa-plus"></i>
-                                    Thêm mới sản phẩm</a> -->
-                                <button class="btn btn-add btn-sm" type="button" title="Sửa" id="show-emp"
+                                    Thêm mới sản phẩm</a>
+                                <!-- <button class="btn btn-add btn-sm" type="button" title="Sửa" id="show-emp"
                                     data-toggle="modal" data-target="#ModalADD"><i class="fas fa-plus"></i> Thêm mới sản
                                     phẩm
-                                </button>
+                                </button> -->
                             </div>
                             <!-- <div class="col-sm-2">
 
@@ -469,50 +469,52 @@ MODAL sửa sp
     <script>
         // Kiểm tra giá trị đã được lưu từ a.html
         const selectedOption = localStorage.getItem("selectedOption");
-
+    
         if (selectedOption !== null) {
-            // Ẩn hoặc hiển thị các thẻ li theo định danh
-            if (selectedOption === "nv") {
-
-                document.getElementById("item3").style.display = "block";
-                document.getElementById("item4").style.display = "none";
-                document.getElementById("item5").style.display = "block";
-                document.getElementById("item6").style.display = "block";
-                document.getElementById("item7").style.display = "none";
-                document.getElementById("item8").style.display = "block";
-                document.getElementById("item8,1").style.display = "block";
-                document.getElementById("item8,2").style.display = "none";
-                document.getElementById("item9").style.display = "none";
-                document.getElementById("item10").style.display = "none";
-                document.getElementById("item11").style.display = "none";
-            } else {
-                // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
-            }
+          // Ẩn hoặc hiển thị các thẻ li theo định danh
+          if (selectedOption === "nv") {
+           
+            document.getElementById("item3").style.display = "block";
+            document.getElementById("item4").style.display = "none";
+            document.getElementById("item5").style.display = "block";
+            document.getElementById("item6").style.display = "block";
+            document.getElementById("item7").style.display = "none";
+            document.getElementById("item8").style.display = "block";
+            document.getElementById("item8,1").style.display = "block";
+            document.getElementById("item8,2").style.display = "none";
+            document.getElementById("item9").style.display = "none";
+            document.getElementById("item10").style.display = "none";
+           
+          } else {
+            // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+          }
         }
-    </script>
-
-    <script>
+      </script>
+    
+      <script>
         // Kiểm tra giá trị đã được lưu từ a.html
         const selectedOption2 = localStorage.getItem("selectedOption");
-
+    
         if (selectedOption2 !== null) {
-            // Ẩn hoặc hiển thị các thẻ li theo định danh
-            if (selectedOption === "ql") {
-
-                document.getElementById("item3").style.display = "block";
-                document.getElementById("item4").style.display = "block";
-                document.getElementById("item5").style.display = "block";
-                document.getElementById("item6").style.display = "block";
-                document.getElementById("item7").style.display = "block";
-                document.getElementById("item8").style.display = "block";
-                document.getElementById("item9").style.display = "block";
-                document.getElementById("item10").style.display = "none";
-                document.getElementById("item11").style.display = "none";
-            } else {
-                // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
-            }
+          // Ẩn hoặc hiển thị các thẻ li theo định danh
+          if (selectedOption === "ql") {
+            
+            document.getElementById("item3").style.display = "block";
+            document.getElementById("item4").style.display = "block";
+            document.getElementById("item5").style.display = "block";
+            document.getElementById("item6").style.display = "block";
+            document.getElementById("item7").style.display = "block";
+            document.getElementById("item8").style.display = "block";
+            document.getElementById("item8,1").style.display = "block";
+            document.getElementById("item8,2").style.display = "block";
+            document.getElementById("item9").style.display = "block";
+            document.getElementById("item10").style.display = "none";
+            
+          } else {
+            // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+          }
         }
-    </script>
+      </script>
 </body>
 
 </html>F

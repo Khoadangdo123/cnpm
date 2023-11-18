@@ -50,7 +50,7 @@
     <ul class="app-menu">
       <!-- <li id="item1"><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i
             class='app-menu__icon bx bx-cart-alt'></i>
-          <span class="app-menu__label">Thanh Toán</span></a></li>
+          <span class="app-menu__label">Thanh toán</span></a></li>
       <li id="item2"><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
             class="app-menu__label">Tổng quát</span></a></li> -->
       <li id="item3"><a class="app-menu__item " href="quan-ly-dat-hang.html"><i
@@ -62,9 +62,9 @@
       <li id="item5"><a class="app-menu__item" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
-      <li id="item6"><a class="app-menu__item" href="quan-ly-hoa-don.html"><i
+      <li id="item6"><a class="app-menu__item " href="quan-ly-hoa-don.html"><i
             class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản lý hóa đơn</span></a></li>
-      <li id="item7"><a class="app-menu__item  active" href="quan-ly-phieu-kiem.html"><i
+      <li id="item7"><a class="app-menu__item" href="quan-ly-phieu-kiem.html"><i
             class='app-menu__icon bx bx-run'></i><span class="app-menu__label">Quản lý phiếu kiểm
           </span></a></li>
       <!-- <li><a class="app-menu__item" href="quan-ly-phieu-huy.html"><i class='app-menu__icon bx bx-run'></i><span
@@ -73,7 +73,7 @@
       <li id="item8"><a class="app-menu__item " href="quan-ly-ton-kho.html"><i
             class='app-menu__icon bx bx-building-house'></i><span class="app-menu__label">Quản lý tồn kho</span></a>
       </li>
-      <li id="item8,1"><a class="app-menu__item" href="quan-ly-nhap-hang.html"><i
+      <li id="item8,1"><a class="app-menu__item active" href="quan-ly-nhap-hang.html"><i
             class='app-menu__icon bx bx-cart-add'></i><span class="app-menu__label">Quản lý nhập hàng</span></a>
       </li>
       <li id="item8,2"><a class="app-menu__item" href="quan-ly-nha-cung-cap.html"><i
@@ -82,8 +82,8 @@
       <li id="item9"><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
       </li>
-      <!-- <li id="item10"><a class="app-menu__item" href="page-calendar.html"><i
-            class='app-menu__icon bx bx-calendar-check'></i><span class="app-menu__label">Lịch công tác </span></a></li> -->
+      <!-- <li id="item10"><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+            class="app-menu__label">Lịch công tác </span></a></li> -->
       <li id="item10"><a class="app-menu__item" href="cai-dat-ht.html"><i class='app-menu__icon bx bx-cog'></i><span
             class="app-menu__label">Cài
             đặt hệ thống</span></a></li>
@@ -92,107 +92,37 @@
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">Quản lý phiếu kiểm</li>
-        <li class="breadcrumb-item"><a href="#">Tạo mới</a></li>
+        <li class="breadcrumb-item">Danh sách đơn nhập</li>
+        <li class="breadcrumb-item"><a href="#">Chi tiết đơn nhập</a></li>
       </ul>
     </div>
+    
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h3 class="tile-title">Tạo mới phiếu kiểm</h3>
+          <h3 class="tile-title">Thêm mới sản phẩm vào chi tiết</h3>
           <div class="tile-body">
-            <div class="row element-button">
-              <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><b><i
-                      class="fas fa-folder-plus"></i> Tạo tình trạng mới</b></a>
-              </div>
-
-            </div>
             <form class="row">
-              <div class="form-group col-md-4">
-                <label class="control-label">Mã phiếu kiểm</label>
+              <div class="form-group  col-md-4">
+                <label class="control-label">Mã sản phẩm</label>
                 <input class="form-control" type="text">
               </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Nhân viên kiểm</label>
-                <input class="form-control" type="text">
+              <div class="form-group  col-md-4">
+                <label class="control-label">Số lượng</label>
+                <input class="form-control" type="number">
               </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Ngày lập phiếu</label>
-                <input class="form-control" type="date">
+              
               </div>
-              <!-- <div class="form-group col-md-4">
-                        <label for="exampleSelect1" class="control-label">Chức vụ</label>
-                        <select class="form-control" id="exampleSelect1">
-                          <option>-- Chọn chức vụ --</option>
-                          <option>Bán hàng</option>
-                          <option>Tư vấn</option>
-                          <option>Dịch vụ</option>
-                          <option>Thu Ngân</option>
-                          <option>Quản kho</option>
-                          <option>Bảo trì</option>
-                          <option>Kiểm hàng</option>
-                          <option>Bảo vệ</option>
-                          <option>Tạp vụ</option>
-                        </select>
-                      </div> -->
-              <!-- <div class="form-group col-md-4">
-                            <label class="control-label">Nhập lý do</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                          </div> -->
-              <div class="form-group col-md-4">
-                <label for="exampleSelect1" class="control-label">Tình trạng</label>
-                <select class="form-control" id="exampleSelect1">
-                  <option>-- Chọn tình trạng --</option>
-                  <option>Đã kiểm hàng</option>
-                  <option>Đang kiểm hàng</option>
-                  <option>Chưa kiểm hàng</option>
+              <!-- <div class="form-group  col-md-4">
+                <label class="control-label">Ghi chú đơn hàng</label>
+                <textarea class="form-control" rows="4"></textarea>
+              </div> -->
 
-                </select>
-              </div>
-
-              <div class="tile-footer">
-              </div>
           </div>
           <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" href="/doc/quan-ly-phieu-kiem.html">Hủy bỏ</a>
+          <a class="btn btn-cancel" href="/doc/chi-tiet-nhap-hang.html">Hủy bỏ</a>
         </div>
   </main>
-
-  <!--
-  MODAL
--->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Tạo trình trạng mới</h5>
-              </span>
-            </div>
-            <div class="form-group col-md-12">
-              <label class="control-label">Nhập tình trạng</label>
-              <input class="form-control" type="text" required>
-            </div>
-          </div>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
-MODAL
--->
-
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -200,7 +130,6 @@ MODAL
   <script src="js/main.js"></script>
   <!-- The javascript plugin to display page loading on top-->
   <script src="js/plugins/pace.min.js"></script>
-
   <script>
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
