@@ -205,11 +205,12 @@
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          // if (data.status === 'success') {
-          //   location.href = './table-data-product.html'
-          // } else {
-          //   alert('Bạn nhập sai yêu cầu')
-          // }
+          if (data.status === 'success') {
+            location.href = './table-data-product.html'
+          } else if (data.error == 1) {
+            location.reload();
+            alert('Bạn nhập sai yêu cầu')
+          }
         })
         .catch((error) => {
           console.log(error)

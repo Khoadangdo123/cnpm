@@ -207,7 +207,7 @@ MODAL
           return outputDateString;
         }    
 
-          function update(maDH, maKH, maNV, ngayXuat, trangThai) {
+        function update(maDH, maKH, maNV, ngayXuat, trangThai) {
 
 
 
@@ -280,7 +280,7 @@ MODAL
             const parrentElement = document.getElementById('form_input_updated');
             parrentElement.appendChild(formUpdate);
 
-          }
+        }
 
           function updateSave(
             maDHSave, 
@@ -318,8 +318,11 @@ MODAL
                 console.log(data);
                 if (data.status === 'success') {
                   location.reload();
+                } else if (data.error === 1) {
+                  alert(data.message);
+                  location.reload();
                 } else {
-                  alert('Cần bạn nhập đúng')
+                  alert('Lỗi')
                 }
               })
               .catch((error) => {

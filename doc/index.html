@@ -30,7 +30,7 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="/index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="/index.html" onclick="dangXuat()"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
@@ -41,7 +41,7 @@
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/admin.jpg" width="50px"
         alt="User Image">
       <div>
-        <p class="app-sidebar__user-name"><b>Minh Tiến</b></p>
+        <p class="app-sidebar__user-name" id="tenDangNhap"></p>
         <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
       </div>
     </div>
@@ -414,6 +414,22 @@
   </script> -->
 
   <script>
+
+    const tenDangNhapText = localStorage.getItem('TENNV');
+    console.log(tenDangNhapText)
+    const tenDangNhap = document.getElementById('tenDangNhap');
+    const tagTenDangNhap = document.createElement('b');
+    tagTenDangNhap.innerHTML = `
+      <b>
+        ${tenDangNhapText}
+      </b>
+    `;
+    tenDangNhap.appendChild(tagTenDangNhap);
+
+    function dangXuat() {
+      localStorage.removeItem('TENNV')
+    }
+
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
 
@@ -445,7 +461,7 @@
 
     if (selectedOption2 !== null) {
       // Ẩn hoặc hiển thị các thẻ li theo định danh
-      if (selectedOption === "ql") {
+      if (selectedOption === "Quản lý") {
         document.getElementById("item1").style.display = "block";
         document.getElementById("item2").style.display = "block";
         document.getElementById("item3").style.display = "block";

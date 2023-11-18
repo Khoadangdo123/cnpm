@@ -26,7 +26,7 @@ function validate() {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        if (data.logIn) {
+        if (data.logIn === 1) {
           
           swal({
             title: "",
@@ -35,20 +35,100 @@ function validate() {
             close: true,
             button: false,
           });
+          
+          localStorage.setItem("TENNV", data.dataUser[0].TENNV);
+        
           window.location = "doc/index.html";
           return true;
-        } else {
+        } else if (data.logIn === 2) {
           // Khúc này bắt lỗi nha cu lỗi nha cu
-
+          
           swal({
-              title: "",
-              text: "Bạn chưa điền đầy đủ thông tin đăng nhập...",
-              icon: "error",
-              close: true,
-              button: "Thử lại",
-            });
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
           return false;
+        } else if (data.logIn === 3) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+          return false;
+        } else if (data.logIn === 4) {
+          // Khúc này bắt lỗi nha cu lỗi nha cu
+          
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+          return false;
+        } else if (data.logIn === 4) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else if (data.logIn === 5) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else if (data.logIn === 6) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else if (data.logIn === 7) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else if (data.logIn === 8) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else if (data.logIn === 9) {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
+        } else {
+          swal({
+            title: "",
+            text: `${data.message}`,
+            icon: "error",
+            close: true,
+            button: "Thử lại",
+          });
         }
+        
       })
       .catch(error => {
         console.error('Error:', error);
