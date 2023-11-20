@@ -297,16 +297,20 @@ MODAL
                 .then((data) => {
                     console.log(data);
                     if (data.status === 'success') {
-                    location.reload();
+                        location.reload();
+                    } else if (data.error === 1) {
+                        alert(`${data.message}`)
+                    } else if (data.error === 2) {
+                        alert(`${data.message}`)
                     } else {
-                    alert('Cần bạn nhập đúng')
+                        alert(`${data.message}`)
                     }
                 })
                 .catch((error) => {
                     console.log(error)
                 });
 
-            }
+        }
 
         function xemChiTietDatHang(maDD) {
             localStorage.setItem('maDonDat', maDD);
@@ -384,31 +388,32 @@ MODAL
         //     localStorage.setItem('maHoaDon', maHD);
         //   }
         
-          function deleteItemDD(id) {
+        function deleteItemDD(id) {
             const dataDelete = {
-              MADD: id
+                MADD: id
             }
 
             fetch('http://localhost:3000/QL/dondat', {
-              method: 'DELETE',
-              headers: {
+                method: 'DELETE',
+                headers: {
                 'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(dataDelete)
+                },
+                body: JSON.stringify(dataDelete)
             })
-              .then((response) => response.json())
-              .then((data) => {
+                .then((response) => response.json())
+                .then((data) => {
                 console.log(data)
-                // if (data.status === 'delete success') {
-                //   location.reload();
-                // } else {
-                //   alert('Dữ liệu bị xung đột')
-                // }
-              })
-              .catch((error) => {
+                if (data.status === 'delete success') {
+                    // alert(`${data.message}`);
+                    location.reload();
+                } else {
+                    alert(`${data.message}`);
+                }
+                })
+                .catch((error) => {
                 console.log(error)
-              })
-          }
+                });
+        }
 
         // function deleteRow(r) {
         //     var i = r.parentNode.parentNode.rowIndex;

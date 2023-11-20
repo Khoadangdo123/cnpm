@@ -218,10 +218,10 @@
 
             </div>
             <form class="row">
-              <div class="form-group col-md-4">
+              <!-- <div class="form-group col-md-4">
                 <label class="control-label">Mã đơn đặt</label>
                 <input class="form-control" type="text" id="maDD">
-              </div>
+              </div> -->
               <div class="form-group col-md-4">
                 <label class="control-label">Mã nhân viên đặt</label>
                 <input class="form-control" type="text" required id="maNVDat">
@@ -316,24 +316,18 @@
     }
 
     function insertThongTinNhanVien() {
-      var valueMaDD = document.getElementById('maDD').value;
+      // var valueMaDD = document.getElementById('maDD').value;
       var valueMaNVDat = document.getElementById('maNVDat').value;
       var valueNgayDat = document.getElementById('ngayDat').value;
 
 
-      if (valueMaDD === '') {
-        const dataInsert = {
-          MADD: "000" + localStorage.getItem('maDDTiepTheo'),
-          NVDAT: valueMaNVDat,
-          NGAYDAT: DataTimeNgaySinh(valueNgayDat)
-        };
-      } else {
-        const dataInsert = {
-          MADD: valueMaDD,
-          NVDAT: valueMaNVDat,
-          NGAYDAT: DataTimeNgaySinh(valueNgayDat)
-        };
-      }
+      console.log(Number(localStorage.getItem('maDDTiepTheo')) + 1)
+
+      const dataInsert = {
+        MADD: "000" + String(Number(localStorage.getItem('maDDTiepTheo')) + 1),
+        NVDAT: valueMaNVDat,
+        NGAYDAT: DataTimeNgaySinh(valueNgayDat)
+      };
 
       fetch('http://localhost:3000/QL/dondat', {
         method: 'POST',
@@ -345,11 +339,16 @@
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          // if (data.status === 'success') {
-          //   location.href = './table-data-product.html'
-          // } else {
-          //   alert('Bạn nhập sai yêu cầu')
-          // }
+          if (data.status === 'success') {
+            location.href = './table-data-product.html'
+          } else if (data.error === 1) {
+            alert(`${data.message}`)
+          } else if (data.error === 2) {
+            alert(`${data.message}`)
+          } 
+          else {
+            alert(`${data.message}`)
+          }
         })
         .catch((error) => {
           console.log(error)

@@ -109,7 +109,7 @@
                         <div class="row element-button">
                             <div class="col-sm-2">
 
-                                <a class="btn btn-add btn-sm" href="form-add-bi-cam.html" title="Thêm"><i
+                                <a class="btn btn-add btn-sm" href="./form-add-chi-tiet-don-hang.html" title="Thêm"><i
                                         class="fas fa-plus"></i>
                                     Tạo mới</a>
                             </div>
@@ -380,7 +380,7 @@
                 var titleTong = document.createElement('h1');
 
                 titleTong.innerHTML = `
-                    <h1>Tổng tiền: ${totalValue}</h1>
+                    <h1>Tổng tiền: ${totalValue} VNĐ</h1>
                 `;
 
                 tongTienValue.appendChild(titleTong);
@@ -533,7 +533,12 @@
                 console.log(data);
                 if (data.status === 'success') {
                   location.reload();
-                } else {
+                } else if (data.error === 1) {
+                    alert(`${data.message}`)
+                } else if (data.error === 2) {
+                    alert(`${data.message}`)
+                }
+                else {
                   alert('Cần bạn nhập đúng')
                 }
               })
@@ -561,11 +566,11 @@
               .then((response) => response.json())
               .then((data) => {
                 console.log(data)
-                // if (data.status === 'delete success') {
-                //   location.reload();
-                // } else {
-                //   alert('Dữ liệu bị xung đột')
-                // }
+                if (data.status === 'success') {
+                  location.reload();
+                } else {
+                  alert(`${data.message}`)
+                }
               })
               .catch((error) => {
                 console.log(error)

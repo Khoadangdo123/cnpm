@@ -290,7 +290,7 @@
             var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
             var day = String(dateObject.getDate()).padStart(2, '0');
 
-            var formattedDate = `${month}/${day}/${year}`;
+            var formattedDate = `${month}-${day}-${year}`;
             return formattedDate;
         }
 
@@ -299,7 +299,7 @@
           var dateComponents = data.split("-");
 
           // Rearrange the components in the "mm-dd-yyyy" format
-          var outputDateString = dateComponents[0] + "-" + dateComponents[2] + "-" + dateComponents[1];
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
 
           return outputDateString;
         }
@@ -436,7 +436,7 @@
                         '${diaChi}',
                         '${sdt}',
                         '${gioiTinh}',
-                        '${ngaySinh}',
+                        '${DataTime(ngaySinh)}',
                         '${tkhoan}',
                         '${mkhau}',
                         '${chucvu}',
@@ -490,9 +490,7 @@
               TKHOAN: taiKhoanSave,
               MKHAU: mkSave,
               CHUCVU: chucvu
-            }
-
-            console.log(JSON.stringify(dataUpdate))
+            };
             
             fetch('http://localhost:3000/QL/nhanvien', {
               method: 'PATCH',
@@ -506,8 +504,16 @@
                 console.log(data);
                 if (data.status === 'success') {
                   location.reload();
-                } else {
-                  alert('Cần bạn nhập đúng')
+                } else if (data.error === 1) {
+                  alert(`${data.message}`);
+                  location.reload();
+                } else if (data.error === 2) {
+                  alert(`${data.message}`);
+                } else if (data.error === 3) {
+                  alert(`${data.message}`);
+                }
+                else {
+                  alert(`${data.message}`)
                 }
               })
               .catch((error) => {
@@ -536,7 +542,7 @@
                 if (data.status === 'delete success') {
                   location.reload();
                 } else {
-                  alert('Dữ liệu bị xung đột')
+                  alert(`${data.message}`)
                 }
               })
               .catch((error) => {

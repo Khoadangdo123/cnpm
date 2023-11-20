@@ -319,10 +319,9 @@ MODAL
                 if (data.status === 'success') {
                   location.reload();
                 } else if (data.error === 1) {
-                  alert(data.message);
-                  location.reload();
+                  alert(`${data.message}`);
                 } else {
-                  alert('Lỗi')
+                  alert(`${data.message}`)
                 }
               })
               .catch((error) => {
@@ -423,11 +422,11 @@ MODAL
               .then((response) => response.json())
               .then((data) => {
                 console.log(data)
-                // if (data.status === 'delete success') {
-                //   location.reload();
-                // } else {
-                //   alert('Dữ liệu bị xung đột')
-                // }
+                if (data.status === 'delete success') {
+                  location.reload();
+                } else {
+                  alert(`${data.message}`)
+                }
               })
               .catch((error) => {
                 console.log(error)
