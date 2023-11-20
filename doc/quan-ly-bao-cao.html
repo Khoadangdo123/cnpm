@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Danh sách nhân viên | Quản trị Admin</title>
+    <title>Quản lý báo cáo</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,8 +38,7 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/admin.jpg" width="50px"
-                alt="User Image">
+        <div class="app-sidebar__user">
             <div>
                 <p class="app-sidebar__user-name"><b>Minh Tiến</b></p>
                 <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
@@ -466,52 +465,52 @@
     <script>
         // Kiểm tra giá trị đã được lưu từ a.html
         const selectedOption = localStorage.getItem("selectedOption");
-    
+
         if (selectedOption !== null) {
-          // Ẩn hoặc hiển thị các thẻ li theo định danh
-          if (selectedOption === "nv") {
-           
-            document.getElementById("item3").style.display = "block";
-            document.getElementById("item4").style.display = "none";
-            document.getElementById("item5").style.display = "block";
-            document.getElementById("item6").style.display = "block";
-            document.getElementById("item7").style.display = "block";
-            document.getElementById("item8").style.display = "block";
-            document.getElementById("item8,1").style.display = "block";
-            document.getElementById("item8,2").style.display = "none";
-            document.getElementById("item9").style.display = "none";
-            document.getElementById("item10").style.display = "none";
-           
-          } else {
-            // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
-          }
+            // Ẩn hoặc hiển thị các thẻ li theo định danh
+            if (selectedOption === "nv") {
+
+                document.getElementById("item3").style.display = "block";
+                document.getElementById("item4").style.display = "none";
+                document.getElementById("item5").style.display = "block";
+                document.getElementById("item6").style.display = "block";
+                document.getElementById("item7").style.display = "block";
+                document.getElementById("item8").style.display = "block";
+                document.getElementById("item8,1").style.display = "block";
+                document.getElementById("item8,2").style.display = "none";
+                document.getElementById("item9").style.display = "none";
+                document.getElementById("item10").style.display = "none";
+
+            } else {
+                // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+            }
         }
-      </script>
-    
-      <script>
+    </script>
+
+    <script>
         // Kiểm tra giá trị đã được lưu từ a.html
         const selectedOption2 = localStorage.getItem("selectedOption");
-    
+
         if (selectedOption2 !== null) {
-          // Ẩn hoặc hiển thị các thẻ li theo định danh
-          if (selectedOption === "ql") {
-            
-            document.getElementById("item3").style.display = "block";
-            document.getElementById("item4").style.display = "block";
-            document.getElementById("item5").style.display = "block";
-            document.getElementById("item6").style.display = "block";
-            document.getElementById("item7").style.display = "block";
-            document.getElementById("item8").style.display = "block";
-            document.getElementById("item8,1").style.display = "block";
-            document.getElementById("item8,2").style.display = "block";
-            document.getElementById("item9").style.display = "block";
-            document.getElementById("item10").style.display = "none";
-            
-          } else {
-            // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
-          }
+            // Ẩn hoặc hiển thị các thẻ li theo định danh
+            if (selectedOption === "ql") {
+
+                document.getElementById("item3").style.display = "block";
+                document.getElementById("item4").style.display = "block";
+                document.getElementById("item5").style.display = "block";
+                document.getElementById("item6").style.display = "block";
+                document.getElementById("item7").style.display = "block";
+                document.getElementById("item8").style.display = "block";
+                document.getElementById("item8,1").style.display = "block";
+                document.getElementById("item8,2").style.display = "block";
+                document.getElementById("item9").style.display = "block";
+                document.getElementById("item10").style.display = "none";
+
+            } else {
+                // Nếu không khớp, bạn có thể xử lý ẩn hoặc hiển thị các thẻ khác theo cách tương tự
+            }
         }
-      </script>
+    </script>
 </body>
 
 </html>

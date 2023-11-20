@@ -12,7 +12,7 @@ function validate() {
             close: true,
             button: false,
           });
-        window.location = "doc/index.html";
+        window.location = "doc/table-data-product.html";
         return true;
        
     }
