@@ -441,15 +441,20 @@ MODAL
                 console.log(data);
                 if (data.status === 'success') {
                   location.reload();
-                } else {
-                  alert('Cần bạn nhập đúng')
+                } else if (data.error === 1) {
+                  alert(`${data.message}`);
+                } else if (data.error === 2) {
+                  alert(`${data.message}`);
+                }
+                else {
+                  alert(`${data.message}`)
                 }
               })
               .catch((error) => {
                 console.log(error)
               });
 
-            }
+          }
 
     function deleteRow(r) {
       var i = r.parentNode.parentNode.rowIndex;

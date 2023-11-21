@@ -236,27 +236,27 @@ MODAL
                       <input class="form-control" type="text" required value="${NVLAP}" id="maNhanVien_${MAPK}">
                     </div>
                     <div class="form-group  col-md-6">
-                      <label class="control-label">Mã khách hàng</label>
+                      <label class="control-label">Mã sản phẩm</label>
                       <input class="form-control" type="text" required value="${MASP}" id="maSanPham_${MAPK}">
                     </div>
 
                   
                     <div class="form-group col-md-6">
-                      <label class="control-label">Mã sản phẩm</label>
+                      <label class="control-label">Đơn giá</label>
                       <input class="form-control" type="text" required value="${DONGIA}" id="maDonGia_${MAPK}">
                     </div>
                     <div class="form-group col-md-6">
-                      <label class="control-label">Ngày xuất</label>
+                      <label class="control-label">Ngày lập</label>
                       <input class="form-control" type="date" value="${NGLAP}" id="ngayLap_${MAPK}">
                     </div>
                     
                     <div class="form-group col-md-6">
-                      <label class="control-label">Đơn giá</label>
+                      <label class="control-label">Trạng thái</label>
                       <input class="form-control" type="text" value="${TRANGTHAI}" id="trangThai_${MAPK}">
                     </div>
 
                     <div class="form-group  col-md-6">
-                      <label class="control-label">Số lượng</label>
+                      <label class="control-label">Số lượng giao</label>
                       <input class="form-control" type="text" required value="${SLGIAO}" id="soLuongGiao_${MAPK}">
                     </div>
 
@@ -335,12 +335,16 @@ MODAL
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log(data);
-                // if (data.status === 'success') {
-                //   location.reload();
-                // } else {
-                //   alert('Cần bạn nhập đúng')
-                // }
+                if (data.status === 'success') {
+                  location.reload();
+                } else if (data.error === 1) {
+                  alert(`${data.message}`)
+                } else if (data.error === 2) {
+                  alert(`${data.message}`)
+                }
+                else {
+                  alert(`${data.message}`)
+                }
               })
               .catch((error) => {
                 console.log(error)
@@ -428,11 +432,11 @@ MODAL
               .then((response) => response.json())
               .then((data) => {
                 console.log(data)
-                // if (data.status === 'delete success') {
-                //   location.reload();
-                // } else {
-                //   alert('Dữ liệu bị xung đột')
-                // }
+                if (data.status === 'delete success') {
+                  location.reload();
+                } else {
+                  alert('Dữ liệu bị xung đột')
+                }
               })
               .catch((error) => {
                 console.log(error)
