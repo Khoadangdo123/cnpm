@@ -151,7 +151,7 @@
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <!-- <tbody>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                     <td rowspan="4">0001</td>
@@ -167,7 +167,6 @@
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
                                     <td>2</td>
                                     <td>A001</td>
                                     <td>2</td>
@@ -180,7 +179,6 @@
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
                                     <td>3</td>
                                     <td>A001</td>
                                     <td>2</td>
@@ -193,7 +191,6 @@
                                 </tr>
                                 <tr>
                                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                    <!-- <td>0001</td> -->
                                     <td>4</td>
                                     <td>A001</td>
                                     <td>2</td>
@@ -204,7 +201,7 @@
                                                 class="fa fa-edit"></i></button>
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> -->
                         </table>
                         <div class="col-sm-11 text-right">
                             <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button"
@@ -230,6 +227,298 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    
+    <script>
+        var myApp = new function () {
+            this.printTable = function () {
+                var tab = document.getElementById('sampleTable');
+                var win = window.open('', '', 'height=700,width=700');
+                win.document.write(tab.outerHTML);
+                win.document.close();
+                win.print();
+            }
+        }
+        //     //Sao chép dữ liệu
+        //     var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+
+        // copyTextareaBtn.addEventListener('click', function(event) {
+        //   var copyTextarea = document.querySelector('.js-copytextarea');
+        //   copyTextarea.focus();
+        //   copyTextarea.select();
+
+        //   try {
+        //     var successful = document.execCommand('copy');
+        //     var msg = successful ? 'successful' : 'unsuccessful';
+        //     console.log('Copying text command was ' + msg);
+        //   } catch (err) {
+        //     console.log('Oops, unable to copy');
+        //   }
+        // });
+
+
+        //Modal
+        $("#show-emp").on("click", function () {
+            $("#ModalUP").modal({ backdrop: false, keyboard: false })
+        });
+    </script>
+
+    <script>
+
+        function DataTime(data) {
+            var dateObject = new Date(data);
+
+            var year = dateObject.getFullYear();
+            var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            var day = String(dateObject.getDate()).padStart(2, '0');
+
+            var formattedDate = `${month}-${day}-${year}`;
+            return formattedDate;
+        }
+
+        function DataTimeNgaySinh(data) {
+          // Split the string into components
+          var dateComponents = data.split("-");
+
+          // Rearrange the components in the "mm-dd-yyyy" format
+          var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+          return outputDateString;
+        }
+
+        const getItemMaHD = localStorage.getItem('maHoaDon');
+        const dataGetItem = {
+            MAHD: getItemMaHD
+        }
+
+        function backHoaDon() {
+            // Assume you have a key stored in localStorage
+            const keyToDelete = "maHoaDon";
+
+            // Remove the item from localStorage
+            localStorage.removeItem(keyToDelete); 
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/QL/chitietnhaphang', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataGetItem)
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    renderTableData(data.data);
+                    totalHoaDon(data.data)
+                    
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+
+            function totalHoaDon(data) {
+                const totalValue = data.reduce((sum, obj) => sum + (Number(obj.SOLUONG) * Number(obj.DONGIA)), 0);
+
+                var tongTienValue = document.getElementById('tongTien');
+                var titleTong = document.createElement('h1');
+
+                titleTong.innerHTML = `
+                    <h1>Tổng tiền: ${totalValue} VNĐ</h1>
+                `;
+
+                tongTienValue.appendChild(titleTong);
+            }
+                
+            function renderTableData(data) {
+                var tableBody = document.getElementById('sampleTable');
+
+                data.forEach(function (item) {
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                      <tr>
+                        <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                        <td>${item.MAHD}</td>
+                        <td>${item.MASP}</td>
+                        <td>${item.DONGIA}</td>
+                        <td>${item.SOLUONG}</td>
+                       
+                        <td>${Number(item.SOLUONG) * Number(item.DONGIA)}</td>
+                            <button 
+                              class="btn btn-primary btn-sm trash" 
+                              type="button" 
+                              title="Xóa"
+                              onclick="deleteItemCTHD('${item.MAHD}', '${item.MASP}')"
+                            >
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
+                              <button 
+                                class="btn btn-primary btn-sm edit" 
+                                title="Sửa" id="show-emp" 
+                                data-toggle="modal"
+                                data-target="#ModalUP"
+                                onclick="update(
+                                  '${item.MAHD}',
+                                  '${item.MASP}',
+                                  '${item.DONGIA}',
+                                  '${item.SOLUONG}'
+                                )"
+                              ><i class="fas fa-edit"></i>
+                            </button>
+                      </tr>
+                    `;
+
+                    tableBody.appendChild(row);
+              });
+            }
+          });
+
+        function update(maHD, maSP, donGia, soLuong) {
+
+            const formUpdate = document.createElement('div');
+            formUpdate.innerHTML = `
+            <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="form-group  col-md-12">
+                        <span class="thong-tin-thanh-toan">
+                        <h5>Chỉnh sửa thông tin hóa đơn</h5>
+                        </span>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Mã hóa đơn</label>
+                            <input class="form-control" type="text" required value="${maHD}" id="maHoaDon_${maHD}" disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Mã sản phẩm</label>
+                            <input class="form-control" type="text" required value="${maSP}" id="maSanPham_${maHD}" disabled>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label">Đơn giá</label>
+                            <input class="form-control" type="text" required value="${donGia}" id="donGia_${maHD}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Số lượng</label>
+                            <input class="form-control" type="text" required value="${soLuong}" id="soLuong_${maHD}">
+                        </div>
+
+                    </div>
+                    <!-- <BR>
+                    <a href="#" style="    float: right;
+                font-weight: 600;
+                color: #ea0000;">Chỉnh sửa nâng cao</a>
+                    <BR> -->
+                    <BR>
+                    <button 
+                    class="btn btn-save" 
+                    type="button" 
+                    onclick="updateSave(
+                        '${maHD}',
+                        '${maSP}',
+                        '${donGia}',
+                        '${soLuong}'
+                    )"
+                    >Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </div>
+                <div class="modal-footer">
+                </div>
+                </div>
+            </div>
+            </div>
+            `;
+
+            const parrentElement = document.getElementById('form_input_updated');
+            parrentElement.appendChild(formUpdate);
+
+        }
+
+        function updateSave(
+            maHDSave,
+            maSPSave,
+            donGiaSave,
+            soLuongSave
+          ) {
+
+            const inputMaHoaDon = document.getElementById(`maHoaDon_${maHDSave}`).value;
+            const inputMaSanPham = document.getElementById(`maSanPham_${maHDSave}`).value;
+            const inputDonGia = document.getElementById(`donGia_${maHDSave}`).value;
+            const inputSoLuong = document.getElementById(`soLuong_${maHDSave}`).value;
+
+            const dataUpdate = {
+              MAHD: inputMaHoaDon,
+              MASP: inputMaSanPham,
+              DONGIA: inputDonGia,
+              SOLUONG: inputSoLuong,
+            };
+
+            console.log(JSON.stringify(dataUpdate))
+            
+            fetch('http://localhost:3000/QL/chitiethoadon', {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dataUpdate)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                if (data.status === 'success') {
+                  location.reload();
+                } else if (data.error === 1) {
+                    alert(`${data.message}`)
+                } else if (data.error === 2) {
+                    alert(`${data.message}`)
+                }
+                else {
+                  alert('Cần bạn nhập đúng')
+                }
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+
+          }
+
+
+        function deleteItemCTHD(id, idSP) {
+            const dataDelete = {
+              MAHD: id,
+              MASP: idSP
+            }
+
+            fetch('http://localhost:3000/QL/chitietnhaphang', {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+                // Add any other headers if needed (e.g., authorization)
+              },
+              body: JSON.stringify(dataDelete)
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data)
+                if (data.status === 'success') {
+                  location.reload();
+                } else {
+                  alert(`${data.message}`)
+                }
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          }
+
+    </script>
+    
     <script>
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;

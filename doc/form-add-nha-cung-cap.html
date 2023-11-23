@@ -380,6 +380,75 @@
   <!-- The javascript plugin to display page loading on top-->
   <script src="js/plugins/pace.min.js"></script>
   <script>
+    function DataTimeNgaySinh(data) {
+      // Split the string into components
+      var dateComponents = data.split("-");
+
+      // Rearrange the components in the "mm-dd-yyyy" format
+      var outputDateString = dateComponents[0] + "-" + dateComponents[1] + "-" + dateComponents[2];
+
+      return outputDateString;
+    }
+
+    function generateRandomCode(length) {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Các ký tự có thể xuất hiện trong chuỗi
+      let result = '';
+
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+      }
+
+      return result;
+    }
+
+
+    function insertThongTinNhaCungCap() {
+      var valueMaNCC = document.getElementById('maNCC').value;
+      var valueTenNCC = document.getElementById('tenNCC').value;
+      var valueDiaChi = document.getElementById('diaChi').value;
+
+      if (valueMaNCC === '') {
+        var dataInsert = {
+          MANCC: generateRandomCode(6),
+          TENNCC: valueTenNCC,
+          DIACHI: valueDiaChi,
+          
+        };
+      } else {
+        var dataInsert = {
+          MANCC: valueMaNCC,
+          TENNCC: valueMaNV,
+          DIACHI: valueDiaChi,
+          
+        };
+      }
+
+      fetch('http://localhost:3000/QL/nhacungcap', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataInsert)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.status === 'success') {
+            location.href = './quan-ly-nha-cung-cap.html'
+          } else if (data.error === 1) {
+            alert(`${data.message}`)
+          } else {
+            alert(`${data.message}`)
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
+  </script>
+  <script>
     // Kiểm tra giá trị đã được lưu từ a.html
     const selectedOption = localStorage.getItem("selectedOption");
 
