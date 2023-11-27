@@ -138,7 +138,13 @@
                                         class="fas fa-trash-alt"></i> Xóa tất cả </a>
                             </div>
                         </div>
-                        <table class="table table-hover table-bordered" id="sampleTable">
+                        <div>
+                            <h4>Tìm kiếm:</h4>
+                            <input type="text" id="searchInput" placeholder="Search...">
+                        </div>
+                        <table
+                            id="TableDataFetch"
+                        >
                             <thead>
                                 <tr>
                                     <th width="10"><input type="checkbox" id="all"></th>
@@ -317,25 +323,29 @@ MODAL
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('http://localhost:3000/QL/dondat', {
-                method: 'GET',
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    renderTableData(data.data)
-                    localStorage.setItem('maDDTiepTheo', data.data.length)
-                })
-                .catch((error) => {
-                    console.log(error)
-                });
 
-                
+            var dataSearch = [];
+            function fetchDataAndRender() {
+                fetch('http://localhost:3000/QL/dondat', {
+                    method: 'GET',
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        renderTableData(data.data);
+                        dataSearch = data.data;
+                        localStorage.setItem('maDDTiepTheo', data.data.length)
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+            }
+
+
             function renderTableData(data) {
-                var tableBody = document.getElementById('sampleTable');
+                var tableBody = document.getElementById('TableDataFetch');
 
                 data.forEach(function (item) {
-    
-                    // console.log(item)
+
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <tr>
@@ -378,9 +388,45 @@ MODAL
                     tableBody.appendChild(row);
                     
                 });
-
-                
             }
+
+            fetchDataAndRender();
+        
+            function filterAndRender(searchValue) {
+                var filteredData = dataSearch.filter(function(item) {
+                    return (
+                        item.MADD.toLowerCase().includes(searchValue) ||
+                        item.NVDAT.toLowerCase().includes(searchValue) ||
+                        DataTime(item.NGAYDAT).toLowerCase().includes(searchValue)
+                        // Add additional conditions for other columns
+                    );
+                });
+
+                var tableBody = document.getElementById('TableDataFetch');
+
+                tableBody.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th width="10"><input type="checkbox" id="all"></th>
+                            <th>Mã đơn đặt</th>
+                            <th>Nhân viên đặt</th>
+                            <th>Ngày đặt</th>
+                            
+                            <th>Xem chi tiết đơn đặt</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                `;
+                // Render the filtered data
+                renderTableData(filteredData)
+            }
+            
+            document.getElementById("searchInput").addEventListener("input", function() {
+                var searchValue = this.value.toLowerCase();
+                filterAndRender(searchValue);
+            });
         });
             
 
